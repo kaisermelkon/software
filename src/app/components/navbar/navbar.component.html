@@ -1,0 +1,15 @@
+<nav>
+  <div class="logo">
+    <h4>The Nav</h4>
+  </div>
+  <div class="burger" (click)="Open()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <ul [ngClass]="{'open': isOpen}" class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Cart</a></li>
+  </ul>
+</nav>
