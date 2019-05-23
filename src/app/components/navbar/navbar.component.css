@@ -25,7 +25,8 @@
   
   .logo{
     /*El color del logo es casi blanco*/
-    color: rgb(226,226,266);
+    /* color: rgb(226,226,266); */
+    color: aqua;
     /*Todo el logo sea en mayuscula*/
     text-transform: uppercase;
     /*Espacio entre las letras del logo, este si puede ser en px*/
