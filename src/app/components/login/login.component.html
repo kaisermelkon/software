@@ -1,18 +1,15 @@
-<div>
+<div class="centrado">
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="alineado">
     <h2>Inicio de Sesión</h2>
     <blockquote>
       <p><b>Ingresa tu Correo Electrónico</b></p>
-      <input ngModel size="35" maxlength="70" placeholder="Correo" name="email" type="email" required email #email="ngModel">
+      <input ngModel size="35" maxlength="70" placeholder="Correo" name="email" type="email" required email
+        #email="ngModel">
       <p><b>Ingresa tu Contraseña</b></p>
-      <input ngModel size="35" maxlength="70" placeholder="Contraseña" name="password" type="password" #password="ngModel">
+      <input ngModel size="35" maxlength="70" placeholder="Contraseña" name="password" type="password"
+        #password="ngModel">
     </blockquote>
     <div class="centro">
       <small>
@@ -28,9 +25,11 @@
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <footer>
+    <div class="row footer">
+      <div class="col-4 p-5">
+        <h3 class="text-light">MetroUber</h3>
+      </div>
+    </div>
+  </footer>
 </div>

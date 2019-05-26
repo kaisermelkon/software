@@ -25,23 +25,23 @@ export class AuthService {
     );
   }
 
-  signInUser(email: string, password: string){
+  signInUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(
-      response => {
-        this.router.navigate(['inicio']);
-        firebase.auth().currentUser.getIdToken().then(
-          (token: string) => this.token=token
-        )
-      }
-    ).catch(
-      error => console.log(error)
-    );
+      .then(
+        response => {
+          this.router.navigate(['inicio']);
+          firebase.auth().currentUser.getIdToken().then(
+            (token: string) => this.token = token
+          )
+        }
+      ).catch(
+        error => console.log(error)
+      );
   }
 
-  getToken(){
+  getToken() {
     firebase.auth().currentUser.getIdToken().then(
-      (token: string) => this.token=token
+      (token: string) => this.token = token
     );
     return this.token;
   }
@@ -50,8 +50,8 @@ export class AuthService {
     return this.token!=null
   }
 
-  logoutUser(){
+  logoutUser() {
     firebase.auth().signOut();
-    this.token=null;
+    this.token = null;
   }
 }

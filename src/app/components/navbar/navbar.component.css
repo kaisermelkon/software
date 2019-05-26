@@ -92,6 +92,34 @@ nav a:hover{
     /*Permite mover los elementos dentro de ella*/
     position: relative;
   }
+  
+  nav {
+    /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
+    display: flex;
+    /*Esta propiedad permite dividar los elementos dentro de un flex de diferentes maneras, este valor las divide equitativamente con espacio antes, entre y despues*/
+    justify-content: space-around;
+    /*Los centra, a los items dentro de este nav, verticalmente*/
+    align-items: center;
+    height: 8vh;
+    background-color: #5d4954;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  nav a:hover{
+    background-color: #17b0cf;
+  }
+  
+  .logo{
+    /*El color del logo es casi blanco*/
+    /* color: rgb(226,226,266); */
+    color: aqua;
+    /*Todo el logo sea en mayuscula*/
+    text-transform: uppercase;
+    /*Espacio entre las letras del logo, este si puede ser en px*/
+    letter-spacing: 5px;
+    /*Este tambien puede ser en px, en el caso del nav*/
+    font-size: 20px;
+  }
 
   .nav-links {
     /*Mnatiene el elemento en el mismo lugar aun asi se scroll hacia abajo o arriba*/

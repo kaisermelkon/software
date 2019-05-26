@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -17,13 +18,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
     RegistroComponent,
-    InicioComponent
+    InicioComponent,
+    PerfilComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
