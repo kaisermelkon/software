@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
-const {connection} = require('../database');
-const Model = Sequelize.Model;
+const connection = require('../database');
 
-class zona extends Model {}
-zona.init({
-  nombre: Sequelize.STRING,
- 
-}, { sequelize, modelName: 'zona' });
+
+
+const zona = connection.define('zona', {
+    nombre: Sequelize.STRING,
+})
+
+connection.sync();
 
 module.exports = zona;
