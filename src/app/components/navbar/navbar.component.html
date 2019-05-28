@@ -10,8 +10,9 @@
     </div>
     <ul [ngClass]="{'open': isOpen}" class="nav-links" *ngIf="authService.isAuthenticated()">
       <li><a href="/inicio">Inicio</a></li>
-      <li><a href="#">Perfil</a></li>
+      <li><a href="/perfil">Perfil</a></li>
       <li><a href="#">Crear Grupo</a></li>
+      <li><a (click)="authService.logoutUser()">Salir</a></li>
     </ul>
   
 </nav>

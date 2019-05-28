@@ -23,6 +23,11 @@ nav a:hover{
   background-color: #17b0cf;
 }
 
+ul li{
+  /*Para cuando s epara el mouse encima se vea clickeable*/
+  cursor: pointer;
+}
+
 .logo{
   /*El color del logo es casi blanco*/
   /* color: rgb(226,226,266); */

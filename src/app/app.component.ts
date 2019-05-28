@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from './shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import * as firebase from 'firebase';
 })
 export class AppComponent implements OnInit{
   title = 'metroUber';
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(){
     firebase.initializeApp({

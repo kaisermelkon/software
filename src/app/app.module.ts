@@ -17,6 +17,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     ModalModule.forRoot(),
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFireAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

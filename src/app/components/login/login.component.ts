@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   navbarActive: string;
   token;
 
-  constructor(private authService: AuthService) { }
+  constructor(protected authService: AuthService) { }
 
   ngOnInit() {
   }
