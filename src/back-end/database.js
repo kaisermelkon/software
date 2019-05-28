@@ -5,11 +5,7 @@ const connection = new Sequelize('ea', 'root', 'password', {
     dialect: 'mysql'
 });
 
-var usuario = connection.define('usuario', {
-    nombre: Sequelize.STRING,
-    apellido: Sequelize.STRING,
-    profesion: Sequelize.STRING
-})
+
 
 connection.sync()
     .then(()=>{

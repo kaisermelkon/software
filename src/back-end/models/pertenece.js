@@ -3,15 +3,15 @@ const connection = require('../database');
 const usuario = require('./usuario');
 const grupo = require('./grupo');
 
-const horario = connection.define('horario', {
-    hora: Sequelize.STRING,
+const pertenece = connection.define('pertenece', {
+    
     
 });
 
-horario.belongsTo(usuario);
-horario.belongsTo(grupo);
+pertenece.belongsTo(usuario);
+pertenece.belongsTo(grupo);
 
 
 connection.sync();
 
-module.exports = horario;
+module.exports = pertenece;
