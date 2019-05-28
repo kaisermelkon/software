@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,17 +17,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm){
-    const email=form.value.email;
-    const password=form.value.password;
+  onSubmit(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
     this.authService.signInUser(email, password);
   }
 
-  isAuthenticated(){
+  isAuthenticated() {
     return this.authService.isAuthenticated();
   }
 
-  logoutUser(){
+  logoutUser() {
     this.authService.logoutUser();
   }
 
