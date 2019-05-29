@@ -5,7 +5,8 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
+  providers: [AuthService]
 })
 export class RegistroComponent implements OnInit {
 
@@ -13,6 +14,8 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
   onSubmit(form: NgForm){
     const email=form.value.email;
@@ -22,6 +25,10 @@ export class RegistroComponent implements OnInit {
     if(password1 === password2){
       console.log("hello");
       this.authService.signUpUser(email, password1);
+      this.authService.postUsuarios(form.value)
+        .subscribe(res =>{
+          console.log(res);
+        });
       
     }
   }

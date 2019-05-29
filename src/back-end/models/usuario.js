@@ -5,14 +5,18 @@ const direccion = require('./direccion');
 
 const usuario = connection.define('usuario', {
     nombre: Sequelize.STRING,
-    apellido: Sequelize.STRING,
     edad: Sequelize.STRING,
     cedula: Sequelize.STRING,
-    telefono: Sequelize.STRING
+    telefono: Sequelize.STRING,
+    direccion: Sequelize.STRING,
+    correo: Sequelize.STRING,
+    carro: Sequelize.STRING
 });
 
-usuario.belongsTo(carro);
-usuario.belongsTo(direccion);
+//usuario.belongsTo(carro);
+//usuario.belongsTo(direccion);
+
+
 
 
 connection.sync();
