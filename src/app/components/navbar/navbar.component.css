@@ -1,11 +1,103 @@
 /*Detalles para poder trabajar con ellos desde 0*/
-* {
-    margin: 0;
-    padding: 0;
-    /*Esto permite que el padding y el border esten incluidos en el tamano total de un elemento*/
-    box-sizing: border-box;
+/* * {
+  margin: 0;
+  padding: 0;
+  /*Esto permite que el padding y el border esten incluidos en el tamano total de un elemento*/
+      /* box-sizing: border-box; */
+/* } 
+*/ 
+
+
+nav {
+  /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
+  display: flex;
+  /*Esta propiedad permite dividar los elementos dentro de un flex de diferentes maneras, este valor las divide equitativamente con espacio antes, entre y despues*/
+  justify-content: space-around;
+  /*Los centra, a los items dentro de este nav, verticalmente*/
+  align-items: center;
+  height: 8vh;
+  background-color: #5d4954;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav a:hover{
+  background-color: #17b0cf;
+}
+
+ul li{
+  /*Para cuando s epara el mouse encima se vea clickeable*/
+  cursor: pointer;
+}
+
+.logo{
+  /*El color del logo es casi blanco*/
+  /* color: rgb(226,226,266); */
+  color: aqua;
+  /*Todo el logo sea en mayuscula*/
+  text-transform: uppercase;
+  /*Espacio entre las letras del logo, este si puede ser en px*/
+  letter-spacing: 5px;
+  /*Este tambien puede ser en px, en el caso del nav*/
+  font-size: 20px;
+}
+
+/*El ul dentro del nav tag*/
+.nav-links {
+  /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
+  display: flex;
+  /*Ayuda a verificar el tamano del width cuando no se esta seguro de cuanto espacio toma*/
+  /*background-color: red;*/
+  /*Esta propiedad permite dividar los elementos dentro de un flex de diferentes maneras, este valor las divide equitativamente con espacio antes, entre y despues*/
+  justify-content: space-around;
+  /*Cuanto del tamano del nav, excluyento el espacio tomado por el resto de los elementos del nav que no son afectados por este selector, toma*/
+  width: 40%;
+  align-items: center;
+  height: 100%;
+}
+
+/*Todos los li dentro dle ul*/
+.nav-links li {
+  /*Remueve los bullet points que traen los li*/
+  list-style: none;
+}
+
+/*Todos los a tags dentro del ul*/
+.nav-links a {
+  /*El color de los nav links es casi blanco*/
+  color: rgb(226,226,266);
+  /*Quita las decoraciones que trae por ser un a tag*/
+  text-decoration: none;
+  /*Espacio entre las letras del logo, este si puede ser en px*/
+  letter-spacing: 3px;
+  font-weight: bold;
+  /*Este tambien puede ser en px, en el caso del nav*/
+  font-size: 14px;
+}
+
+/*Todo lo posterior a este punto esta relacionado a la vision movil*/
+@media screen and (min-width:769px) {
+  .burger {
+    /*Para evitar que se muestre en tamanos que no sean moviles*/
+    display: none;
   }
-  
+}
+/*Selecciona las lineas que forman la hamburguesa*/
+.line{
+  width: 25px;
+  height: 3px;
+  /*El color de la hamburguesa es casi blanco*/
+  background-color: rgb(226,226,266);
+  /*Distancia entre las lineas de la hamburguesa*/
+  margin: 5px;
+}
+
+/*Solo actua en tamano movil, menos de 768px*/
+@media screen and (max-width: 768px){
+  /*Hace que la nav cuando es movil se vea completa en la pantalla*/
+  nav{
+    /*Permite mover los elementos dentro de ella*/
+    position: relative;
+  }
   
   nav {
     /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
@@ -25,7 +117,8 @@
   
   .logo{
     /*El color del logo es casi blanco*/
-    color: rgb(226,226,266);
+    /* color: rgb(226,226,266); */
+    color: aqua;
     /*Todo el logo sea en mayuscula*/
     text-transform: uppercase;
     /*Espacio entre las letras del logo, este si puede ser en px*/
@@ -33,111 +126,52 @@
     /*Este tambien puede ser en px, en el caso del nav*/
     font-size: 20px;
   }
-  
-  /*El ul dentro del nav tag*/
+
   .nav-links {
-    /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
-    display: flex;
-    /*Ayuda a verificar el tamano del width cuando no se esta seguro de cuanto espacio toma*/
-    /*background-color: red;*/
-    /*Esta propiedad permite dividar los elementos dentro de un flex de diferentes maneras, este valor las divide equitativamente con espacio antes, entre y despues*/
-    justify-content: space-around;
-    /*Cuanto del tamano del nav, excluyento el espacio tomado por el resto de los elementos del nav que no son afectados por este selector, toma*/
-    width: 40%;
-    align-items: center;
-    height: 100%;
+    /*Mnatiene el elemento en el mismo lugar aun asi se scroll hacia abajo o arriba*/
+    position: fixed;
+    width: 100%;
+    height: 100vh !important;
+    min-height: 754px;
+    background-color: #5d4954;
+    /*Posociona los navigation links de manera vertical*/
+    flex-direction: column;
+    /*Resolver pequenos errores de css para que ocupe el height correcto*/
+    top: 0;
+    /*Permite la transicion cuando se presione la hamburguesa*/
+    clip-path: circle(100px at 90% -30%);
+    -webkit-clip-path: circle(100px at 90% -30%);
+    transition: all 1s ease-out;
+    /*Para que antes que se abra la hamburguesa los links no funcionen*/
+    pointer-events: none;
   }
-  
-  /*Todos los li dentro dle ul*/
-  .nav-links li {
-    /*Remueve los bullet points que traen los li*/
-    list-style: none;
+
+  /*Para cuando se presione la hamburguesa*/
+  .nav-links.open {
+    /*Permite la transicion cuando se presione la hamburguesa*/
+    clip-path: circle(1200px at 90% -10%);
+    -webkit-clip-path: circle(1200px at 90% -10%);
+    /*Para que los links funcionen despues que se abra la hamburguesa*/
+    pointer-events: all;
   }
-  
-  /*Todos los a tags dentro del ul*/
-  .nav-links a {
-    /*El color de los nav links es casi blanco*/
-    color: rgb(226,226,266);
-    /*Quita las decoraciones que trae por ser un a tag*/
-    text-decoration: none;
-    /*Espacio entre las letras del logo, este si puede ser en px*/
-    letter-spacing: 3px;
-    font-weight: bold;
-    /*Este tambien puede ser en px, en el caso del nav*/
-    font-size: 14px;
+
+  .logo{
+    /*Mnatiene el elemento en el mismo lugar aun asi se scroll hacia abajo o arriba*/
+    position: fixed;
+    /*Pega el logo a arriba y a la izquierda*/
+    top: 1.5%;
+    left: 5%;
   }
-  
-  /*Todo lo posterior a este punto esta relacionado a la vision movil*/
-  @media screen and (min-width:769px) {
-    .burger {
-      /*Para evitar que se muestre en tamanos que no sean moviles*/
-      display: none;
-    }
+
+  .burger {
+    /*El elemento se posiciona relativamente correspondiente a su padre en este caso el nav*/
+    position: absolute;
+    /*Para que se vea bien a la misma altura que el logo*/
+    top: 15%;
+    right: 5%;
+    /*Para cuando s epara el mouse encima se vea clickeable*/
+    cursor: pointer;
+    /*La posicion z del elemento, en este caso para que la hamburguesa se vea aun cuando los nav links ocupan el 100% del espacio cubriendo el resto del nav y la pagina*/
+    z-index: 2;
   }
-  /*Selecciona las lineas que forman la hamburguesa*/
-  .line{
-    width: 25px;
-    height: 3px;
-    /*El color de la hamburguesa es casi blanco*/
-    background-color: rgb(226,226,266);
-    /*Distancia entre las lineas de la hamburguesa*/
-    margin: 5px;
-  }
-  
-  /*Solo actua en tamano movil, menos de 768px*/
-  @media screen and (max-width: 768px){
-    /*Hace que la nav cuando es movil se vea completa en la pantalla*/
-    nav{
-      /*Permite mover los elementos dentro de ella*/
-      position: relative;
-    }
-  
-    .nav-links {
-      /*Mnatiene el elemento en el mismo lugar aun asi se scroll hacia abajo o arriba*/
-      position: fixed;
-      width: 100%;
-      height: 100vh !important;
-      min-height: 754px;
-      background-color: #5d4954;
-      /*Posociona los navigation links de manera vertical*/
-      flex-direction: column;
-      /*Resolver pequenos errores de css para que ocupe el height correcto*/
-      top: 0;
-      /*Permite la transicion cuando se presione la hamburguesa*/
-      clip-path: circle(100px at 90% -30%);
-      -webkit-clip-path: circle(100px at 90% -30%);
-      transition: all 1s ease-out;
-      /*Para que antes que se abra la hamburguesa los links no funcionen*/
-      pointer-events: none;
-    }
-  
-    /*Para cuando se presione la hamburguesa*/
-    .nav-links.open {
-      /*Permite la transicion cuando se presione la hamburguesa*/
-      clip-path: circle(1200px at 90% -10%);
-      -webkit-clip-path: circle(1200px at 90% -10%);
-      /*Para que los links funcionen despues que se abra la hamburguesa*/
-      pointer-events: all;
-    }
-  
-    .logo{
-      /*Mnatiene el elemento en el mismo lugar aun asi se scroll hacia abajo o arriba*/
-      position: fixed;
-      /*Pega el logo a arriba y a la izquierda*/
-      top: 1.5%;
-      left: 5%;
-    }
-  
-    .burger {
-      /*El elemento se posiciona relativamente correspondiente a su padre en este caso el nav*/
-      position: absolute;
-      /*Para que se vea bien a la misma altura que el logo*/
-      top: 15%;
-      right: 5%;
-      /*Para cuando s epara el mouse encima se vea clickeable*/
-      cursor: pointer;
-      /*La posicion z del elemento, en este caso para que la hamburguesa se vea aun cuando los nav links ocupan el 100% del espacio cubriendo el resto del nav y la pagina*/
-      z-index: 2;
-    }
-  }
-  
+}

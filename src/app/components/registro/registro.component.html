@@ -1,0 +1,40 @@
+<div class="centrado">
+  <br>
+  <br>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <h2>Regístrate!</h2>
+    <blockquote>
+      <p><b>Ingresa tu Nombre de Usuario</b></p>
+      <input size="35" maxlength="70" placeholder="Usuario" type="text" name="username" ngModel #username="ngModel"
+        required>
+        <p><b>Ingresa tu telefono</b></p>
+        <input size="35" maxlength="70" placeholder="Telefono" type="text" name="phone" ngModel #phone="ngModel"
+          required>
+      <p><b>Ingresa tu Correo Electronico</b></p>
+      <input size="35" maxlength="70" placeholder="Correo" type="email" name="email" ngModel #email="ngModel" required
+        email>
+      <p><b>Ingresa tu Contraseña</b></p>
+      <input size="35" maxlength="70" placeholder="Contraseña" type="password" name="password" ngModel
+        #password="ngModel" required>
+      <p><b>Repite tu Contraseña</b></p>
+      <input size="35" maxlength="70" placeholder="Contraseña" type="password" name="password2" ngModel
+        #password="ngModel" required>
+    </blockquote>
+    <div class="centro">
+      <small>
+        <p>¿Ya tienes un Usuario?</p>
+        <a [routerLink]="'login'">Inicia Sesión!</a>
+        <br>
+      </small>
+      <br>
+      <button tye="submit" class="btn btn-primary"><b>Registrarse</b></button>
+    </div>
+  </form>
+  <footer>
+    <div class="row footer">
+      <div class="col-4 p-5">
+        <h3 class="text-light">MetroUber</h3>
+      </div>
+    </div>
+  </footer>
+</div>
