@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 import { User } from  'firebase';
 import { UsuarioService } from './../usuario/usuario.service';
+import { Usuario } from '../../../../back-end/models/usuario.js';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
 
   token: boolean;
   user: User;
+  usuario: Usuario;
 
   constructor(private router: Router, private afAuth: AngularFireAuth, private FB: AngularFireModule, private usuarioService: UsuarioService) { 
     this.afAuth.authState.subscribe(user => {
@@ -25,16 +27,13 @@ export class AuthService {
     })
   }
 
-  
-
   signUpUser(email: string, password: string){
     firebase.auth().createUserWithEmailAndPassword(email, password).then(
       response => {
         this.router.navigate(['inicio']);
         this.token=true;
+        this.usuarioService.postUsuarios(this.usuario);
       }
-    
-
     )
     .catch(
       error => console.log(error)

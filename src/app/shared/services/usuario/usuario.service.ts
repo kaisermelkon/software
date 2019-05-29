@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../../models/usuario.model';
+import { Usuario } from '../../../../back-end/models/usuario.js';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class UsuarioService {
   }
 
   postUsuarios(usuario: Usuario) {
-    return this.http.post(this.URL_API, usuario);
+    this.http.post(this.URL_API, usuario);
   }
 
   putUsuario(usuario: Usuario){

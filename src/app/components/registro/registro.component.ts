@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { Usuario } from '../../../back-end/models/usuario.js';
+
 
 @Component({
   selector: 'app-registro',
@@ -9,6 +11,8 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
   providers: [AuthService]
 })
 export class RegistroComponent implements OnInit {
+
+  usuario:Usuario;
 
   constructor(protected authService: AuthService) { }
 
@@ -25,6 +29,7 @@ export class RegistroComponent implements OnInit {
     if(password1 === password2){
       console.log("hello");
       this.authService.signUpUser(email, password1);
+
       
     }
   }
