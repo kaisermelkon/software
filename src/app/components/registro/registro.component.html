@@ -5,13 +5,13 @@
     <h2>Regístrate!</h2>
     <blockquote>
       <p><b>Ingresa tu Nombre de Usuario</b></p>
-      <input size="35" maxlength="70" placeholder="Usuario" type="text" name="username" ngModel #username="ngModel"
+      <input size="35" maxlength="70" placeholder="Usuario" type="text" name="username" [(ngModel)]="AuthService.selectedUsuario.nombre" #username="ngModel"
         required>
         <p><b>Ingresa tu telefono</b></p>
-        <input size="35" maxlength="70" placeholder="Telefono" type="text" name="phone" ngModel #phone="ngModel"
+        <input size="35" maxlength="70" placeholder="Telefono" type="text" name="phone" [(ngModel)]="AuthService.selectedUsuario.telefono" #phone="ngModel"
           required>
       <p><b>Ingresa tu Correo Electronico</b></p>
-      <input size="35" maxlength="70" placeholder="Correo" type="email" name="email" ngModel #email="ngModel" required
+      <input size="35" maxlength="70" placeholder="Correo" type="email" name="email" [(ngModel)]="AuthService.selectedUsuario.Correo" #email="ngModel" required
         email>
       <p><b>Ingresa tu Contraseña</b></p>
       <input size="35" maxlength="70" placeholder="Contraseña" type="password" name="password" ngModel

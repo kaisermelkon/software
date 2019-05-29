@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 import { User } from  'firebase';
-
+import { UsuarioService } from './../usuario/usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
   token: boolean;
   user: User;
 
-  constructor(private router: Router, private afAuth: AngularFireAuth, private FB: AngularFireModule) { 
+  constructor(private router: Router, private afAuth: AngularFireAuth, private FB: AngularFireModule, private usuarioService: UsuarioService) { 
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -33,6 +33,8 @@ export class AuthService {
         this.router.navigate(['inicio']);
         this.token=true;
       }
+    
+
     )
     .catch(
       error => console.log(error)
@@ -59,4 +61,5 @@ export class AuthService {
     localStorage.removeItem('user');
     this.router.navigate(['./login']);
   }
+
 }

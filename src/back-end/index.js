@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const cors = require('cors');
 
 //Configuración de la Base de Datos
 const {connection} = require('./database');
@@ -18,8 +19,10 @@ app.set('port', process.env.PORT || 3000);
 //Middlewares
 app.use(morgan('dev')); //permite ver por consola las peticiones de los usuarios
 app.use(express.json()); 
+
+app.use(cors({origin: 'http://localhost:4200'}));
 //Rutas
-//app.use('/api/usuarios',require('./routes/usuario.routes'));
+app.use('/api/usuarios',require('./routes/usuario.routes'));
 //Inicio del servidor
 app.listen(app.get('port'), ()=>{
     console.log('server on port', app.get('port'));
