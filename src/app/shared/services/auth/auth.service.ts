@@ -1,24 +1,18 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../../models/usuario.model';
+import { UsuarioService } from './../usuario/usuario.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  selectedUsuario: Usuario; 
-
-  readonly URL_API = 'http://localhost:3000/api/usuarios';
-
-  usuarios: Usuario[];
 
   token: string;
 
-  constructor(private router: Router, private http: HttpClient) {
-    this.selectedUsuario = new Usuario();
+  constructor(private router: Router, private usuarioService: UsuarioService) {
+    
    }
 
   signUpUser(email: string, password: string){
@@ -67,19 +61,4 @@ export class AuthService {
     this.token = null;
   }
 
-  getUsuarios() {
-    return this.http.get(this.URL_API);
-  }
-
-  postUsuarios(usuario: Usuario) {
-    return this.http.post(this.URL_API, usuario);
-  }
-
-  putUsuario(usuario: Usuario){
-    return this.http.put(this.URL_API + `/${usuario.id}`, usuario);
-  }
-
-  deleteUsuario(id: string){
-    return this.http.delete(this.URL_API + `/${id}`);
-  }
 }

@@ -25,10 +25,6 @@ export class RegistroComponent implements OnInit {
     if(password1 === password2){
       console.log("hello");
       this.authService.signUpUser(email, password1);
-      this.authService.postUsuarios(form.value)
-        .subscribe(res =>{
-          console.log(res);
-        });
       
     }
   }
