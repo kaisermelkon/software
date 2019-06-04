@@ -18,6 +18,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { GrupoComponent } from './components/grupo/grupo.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    GrupoComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
