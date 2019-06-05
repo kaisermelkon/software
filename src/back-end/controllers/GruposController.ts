@@ -38,12 +38,11 @@ class GruposController{
         const {codigo}=req.params;
         const grupos=await pool.query("SELECT * FROM grupos WHERE codigo = ?", [codigo]);
         if(grupos.length>0){
-            res.json(grupos[0]);
+            res.send(true);
             console.log(true);
             return true;
         }
-        res.status(404).json({text: "Group not found"});
-        console.log(false);
+        res.send(false);
         return false;
     }
 }

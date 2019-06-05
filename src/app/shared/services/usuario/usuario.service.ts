@@ -10,22 +10,23 @@ import {Observable} from 'rxjs';
 })
 export class UsuarioService {
 
-
+  usuario: any;
 
   URL_API = 'http://localhost:3000/api/usuarios';
 
 
   constructor(private http: HttpClient) { 
-    
+   
   }
 
   getUsuarios() {
     return this.http.get(`${this.URL_API}`);
   }
 
-  getUsuario(correo: string){
-    
-    return this.http.get(`${this.URL_API}/${correo}`).subscribe(res => console.log(res), err => console.log(err));
+  async getUsuario(correo: string){
+    return this.http.get(`${this.URL_API}/${correo}`).subscribe(res => {
+      this.usuario = res;
+    }, err => console.log(err));
   }
 
   createUsuario(usuario: Usuario) {
@@ -39,4 +40,5 @@ export class UsuarioService {
   deleteUsuario(id: string){
     return this.http.delete(`${this.URL_API}/${id}`);
   }
+
 }

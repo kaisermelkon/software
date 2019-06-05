@@ -29,39 +29,29 @@
       <div class="modal-body">
         <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-row">
-            <div class="form-group col-md-6">
               <label for="inputNombreG">Nombre del Grupo</label>
               <input ngModel type="text" class="form-control" id="inputNombreG" placeholder="Nombre del Grupo"
                 name="nombre" #nombre="ngModel">
-            </div>
-            <div class="form-group col-md-6">
-              <label for="inputCodigoG">Codigo del Grupo</label>
-              <input ngModel type="text" class="form-control" id="inputCodigoG" placeholder="Codigo del Grupo"
-                name="codigo" #codigo="ngModel">
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="form-row">
-              <div class="form-group col-md-6">
+          
+
                 <label for="inputMunicipio">Municipio</label>
-                <select id="inputMunicipio" class="form-control">
+                <select id="inputMunicipio" class="form-control" name="municipio" #municipio="ngModel" ngModel>
                   <option selected>Baruta</option>
                   <option>Sucre</option>
                   <option>El Hatillo</option>
                 </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="inputUrbaniacion">Urbanizacion</label>
-                <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion">
-              </div>
 
-              <div class="form-row">
-                <div class="form-group col-md-10">
+            
+                <label for="inputUrbaniacion">Urbanizacion</label>
+                <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" ngModel>
+            
+
+             
+                
                   <label for="inputDescripcion">Descripcion</label>
-                  <input type="text" class="form-control" id="inputDescripcion"placeholder="Descripcion"> 
-                </div>
-              </div>
-            </div>
+                  <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" ngModel> 
+                  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              
             <!-- <label for="inputAddress">Direccion del Grupo</label>
                   <input ngModel type="text" class="form-control" id="inputAddress" placeholder="Direccion del Grupo" name="direccion" #direccion="ngModel"> -->
           </div>
@@ -124,7 +114,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>

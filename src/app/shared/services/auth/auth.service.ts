@@ -46,6 +46,7 @@ export class AuthService {
       await  this.afAuth.auth.signInWithEmailAndPassword(email, password);
       this.usuarioService.getUsuario(email);
       this.router.navigate(['./inicio']);
+      console.log(this.usuarioService.usuario);
   } catch (e) {
       alert("Error!"  +  e.message);
   }

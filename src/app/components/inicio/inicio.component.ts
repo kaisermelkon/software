@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
+import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -8,10 +9,12 @@ import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private grupoService: GrupoService) { }
+  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService) { 
+    console.log(this.usuarioService.usuario);
+  }
 
   ngOnInit() {
-    this.grupoService.getGrupos();
+    
   }
 
 }
