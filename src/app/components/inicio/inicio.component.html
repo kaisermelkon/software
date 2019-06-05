@@ -3,60 +3,20 @@
   <div class="container text-center">
     <h2 class="center">Lista de Grupos</h2>
    
-      <div class="row"> 
-        <div class="col-md-3 col-sm-6">
+      <div class="row" > 
+        <div class="col-md-3 col-sm-6" *ngFor="let grupo of grupos">
           <div class="card text-center"> 
             <div class="card-block"> 
               <img src="/src/city1.jpg" alt="" class="img-fluid">
               <div class="card-tittle">
-                <h4>Ciudad Banesco</h4>
+                <h4>{{grupo.nombre}}</h4>
               </div>
-              <div class="card-text">Bello Monte, Baruta</div>
+              <div class="card-text"></div>
               <br>
               <a style="margin-top: 10px;" href="/grupo" class="btn btn-success">Ver Detalles</a>
             </div>
           </div>
         </div>
-
-        <div class="col-md-3 col-sm-6">
-            <div class="card text-center"> 
-              <div class="card-block"> 
-                <img src="/src/city1.jpg" alt="" class="img-fluid">
-                <div class="card-tittle">
-                  <h4>Torre BOD</h4>
-                </div>
-                <div class="card-text"> La Castellana, Plaza La Castellana</div>
-                <br>
-                <a style="margin-top: 10px;" href="/grupo" class="btn btn-success">Ver Detalles</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-              <div class="card text-center"> 
-                <div class="card-block"> 
-                  <img src="/src/unimet.jpg" alt="" class="card-img-top" alt="">
-                  <div class="card-tittle">
-                    <h4>UNIMET</h4>
-                  </div>
-                  <div class="card-text">Autopista Petare-Guarenas, Distribuidor Metropolitano</div>
-                  <a style="margin-top: 10px;" href="/grupo" class="btn btn-success">Ver Detalles</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="card text-center"> 
-                  <div class="card-block"> 
-                    <img src="/src/city1.jpg" alt="" class="img-fluid">
-                    <div class="card-tittle">
-                      <h4>Cines Unidos Lider</h4>
-                    </div>
-                    <div class="card-text">Avenida Francisco de Miranda frente al Pin 5</div>
-                    <a style="margin-top: 10px;" href="/grupo" class="btn btn-success">Ver Detalles</a>
-                  </div>
-                </div>
-              </div>
       
     </div>
   <script type="js/bootstrap.min.js"></script>

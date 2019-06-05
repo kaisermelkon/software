@@ -49,10 +49,7 @@ class GruposController{
     public async getGruposAdministrador(req: Request, res: Response){
         const {id}=req.params;
         const grupos=await pool.query("SELECT * FROM grupos WHERE administradorId = ?", [id]);
-        if(grupos.length>0){
-            return res.json(grupos);
-        }
-        res.status(404).json({text: "Group not found"});
+        res.json(grupos);
     }
 }
 
