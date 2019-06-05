@@ -45,11 +45,15 @@ export class AuthService {
     try {
       await  this.afAuth.auth.signInWithEmailAndPassword(email, password);
       this.usuarioService.getUsuario(email);
-      this.router.navigate(['./inicio']);
-      console.log(this.usuarioService.usuario);
+      this.temp();
   } catch (e) {
       alert("Error!"  +  e.message);
   }
+  }
+
+  async temp (){
+    await this.sleep(2000);
+    this.router.navigate(['./inicio']);
   }
 
 
@@ -62,6 +66,10 @@ export class AuthService {
     await this.afAuth.auth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['./login']);
+  }
+
+  async sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }

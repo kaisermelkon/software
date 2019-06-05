@@ -16,6 +16,7 @@ class groupRoutes{
         this.router.delete('/:id', gruposController.delete);
         this.router.put('/:id', gruposController.update);
         this.router.get('/:codigo', gruposController.getCodigos);
+        this.router.get('/administrador/:id', gruposController.getGruposAdministrador);
     }
 
 }

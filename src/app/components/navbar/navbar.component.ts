@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit {
       
       //this.grupo.codigo=Math.floor(10000000 + Math.random() * 90000000);
     //}
+    this.grupo.administradorId=this.usuarioService.usuario.id;
     this.grupo.direccionId=this.direccionId
     this.grupoService.createGrupo(this.grupo);
     await this.sleep(1000);

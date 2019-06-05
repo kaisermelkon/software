@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
     this.authService.signInUser(email, password);
-    await this.sleep(3000);
+    await this.sleep(2000);
     console.log(this.usuarioService.usuario);
   }
 

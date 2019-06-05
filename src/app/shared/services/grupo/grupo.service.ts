@@ -22,7 +22,7 @@ export class GrupoService {
   }
 
   getGrupo(id: string){
-    return this.http.get(`${this.URL_API}/${id}`).subscribe(res => console.log(res), err => console.log(err));
+    return this.http.get(`${this.URL_API}/${id}`);
   }
 
   createGrupo(grupo: Grupo) {
@@ -39,5 +39,9 @@ export class GrupoService {
 
   getGruposCodigo(codigo: string){
     return this.http.get(`${this.URL_API}/${codigo}`).subscribe(res => console.log(res), err => console.log(err));
+  }
+
+  getGruposAdministrador(id: string){
+    return this.http.get(`${this.URL_API}/${id}`);
   }
 }
