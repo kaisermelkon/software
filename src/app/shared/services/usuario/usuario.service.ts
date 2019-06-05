@@ -1,35 +1,42 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../../../../back-end/models/usuario.js';
+import {Usuario} from '../../models/Usuario';
+import {Observable} from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  selectedUsuario: Usuario; 
 
-  readonly URL_API = 'http://localhost:3000/api/usuarios';
 
-  usuarios: Usuario[];
+  URL_API = 'http://localhost:3000/api/usuarios';
+
 
   constructor(private http: HttpClient) { 
-    this.selectedUsuario = new Usuario();
+    
   }
 
   getUsuarios() {
-    return this.http.get(this.URL_API);
+    return this.http.get(`${this.URL_API}`);
   }
 
-  postUsuarios(usuario: Usuario) {
-    this.http.post(this.URL_API, usuario);
+  getUsuario(correo: string){
+    
+    return this.http.get(`${this.URL_API}/${correo}`).subscribe(res => console.log(res), err => console.log(err));
   }
 
-  putUsuario(usuario: Usuario){
-    return this.http.put(this.URL_API + `/${usuario.id}`, usuario);
+  createUsuario(usuario: Usuario) {
+    this.http.post(`${this.URL_API}`, usuario).subscribe(res => console.log(res), err => console.log(err));
+  }
+
+  updateUsuario(usuario: Usuario, id: string): Observable<any> {
+    return this.http.put(`${this.URL_API}/${id}`, usuario);
   }
 
   deleteUsuario(id: string){
-    return this.http.delete(this.URL_API + `/${id}`);
+    return this.http.delete(`${this.URL_API}/${id}`);
   }
 }

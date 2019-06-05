@@ -21,6 +21,9 @@ import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { GrupoComponent } from './components/grupo/grupo.component';
+import { UsuarioService } from './shared/services/usuario/usuario.service';
+import { GrupoService } from './shared/services/grupo/grupo.service';
+
 
 
 @NgModule({
@@ -43,7 +46,7 @@ import { GrupoComponent } from './components/grupo/grupo.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth],
+  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

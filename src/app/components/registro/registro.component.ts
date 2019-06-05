@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { Usuario } from '../../../back-end/models/usuario.js';
+import {Usuario} from '../../shared/models/Usuario';
 
 
 @Component({
@@ -12,9 +12,11 @@ import { Usuario } from '../../../back-end/models/usuario.js';
 })
 export class RegistroComponent implements OnInit {
 
-  usuario:Usuario;
+  usuario: Usuario;
 
-  constructor(protected authService: AuthService) { }
+  constructor(protected authService: AuthService) {
+      this.usuario=new Usuario();
+   }
 
   ngOnInit() {
   }
@@ -22,15 +24,18 @@ export class RegistroComponent implements OnInit {
 
 
   onSubmit(form: NgForm){
-    const email=form.value.email;
     const password1=form.value.password;
     const password2=form.value.password2;
+    this.usuario.correo=form.value.email;
+    const correo=form.value.email;
+    this.usuario.telefono=form.value.phone;
+    this.usuario.nombre=form.value.username;
+    this.usuario.cedula=form.value.cedula;
+    this.usuario.edad=form.value.age;
     console.log("hello");
     if(password1 === password2){
       console.log("hello");
-      this.authService.signUpUser(email, password1);
-
-      
+      this.authService.signUpUser(this.usuario, password1);
     }
   }
 
