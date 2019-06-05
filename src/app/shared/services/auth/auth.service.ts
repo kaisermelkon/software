@@ -5,7 +5,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from '@angular/fire';
 import { User } from  'firebase';
 import { UsuarioService } from './../usuario/usuario.service';
-import { Usuario } from '../../../../back-end/models/usuario.js';
+import {Usuario} from '../../models/Usuario';
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +28,12 @@ export class AuthService {
     })
   }
 
-  signUpUser(email: string, password: string){
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(
+  signUpUser(usuario: Usuario, password: string){
+    firebase.auth().createUserWithEmailAndPassword(usuario.correo, password).then(
       response => {
         this.router.navigate(['inicio']);
         this.token=true;
-        this.usuarioService.postUsuarios(this.usuario);
+        this.usuarioService.createUsuario(usuario);
       }
     )
     .catch(
@@ -42,7 +43,8 @@ export class AuthService {
 
   async signInUser(email: string, password: string) {
     try {
-      await  this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      await  this.afAuth.auth.signInWithEmailAndPassword(email, password);
+      this.usuarioService.getUsuario(email);
       this.router.navigate(['./inicio']);
   } catch (e) {
       alert("Error!"  +  e.message);

@@ -20,6 +20,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { UsuarioService } from './shared/services/usuario/usuario.service';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth],
+  providers: [AuthService, AngularFireAuth, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
