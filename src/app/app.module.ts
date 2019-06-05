@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { GrupoComponent } from './components/grupo/grupo.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -24,6 +25,7 @@ import { UsuarioService } from './shared/services/usuario/usuario.service';
 import { GrupoService } from './shared/services/grupo/grupo.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { GrupoService } from './shared/services/grupo/grupo.service';
     LoginComponent,
     RegistroComponent,
     InicioComponent,
-    PerfilComponent
+    PerfilComponent,
+    GrupoComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

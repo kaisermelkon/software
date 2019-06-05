@@ -2,55 +2,130 @@
   <div class="logo">
     <h4>MetroUber</h4>
   </div>
-    <div class="burger" (click)="Open()" *ngIf="authService.isAuthenticated()">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
+  <div class="burger" (click)="Open()" *ngIf="authService.isAuthenticated()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <ul [ngClass]="{'open': isOpen}" class="nav-links" *ngIf="authService.isAuthenticated()">
+    <li><a class="btn" href="/inicio">Inicio</a></li>
+    <li><a class="btn" href="/perfil">Perfil</a></li>
+    <li><a class="btn" data-toggle="modal" data-target="#modal">Crear Grupo</a></li>
+    <li><a class="btn" (click)="authService.logoutUser()">Salir</a></li>
+  </ul>
+</nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Grupo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNombreG">Nombre del Grupo</label>
+              <input ngModel type="text" class="form-control" id="inputNombreG" placeholder="Nombre del Grupo"
+                name="nombre" #nombre="ngModel">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputCodigoG">Codigo del Grupo</label>
+              <input ngModel type="text" class="form-control" id="inputCodigoG" placeholder="Codigo del Grupo"
+                name="codigo" #codigo="ngModel">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputMunicipio">Municipio</label>
+                <select id="inputMunicipio" class="form-control">
+                  <option selected>Baruta</option>
+                  <option>Sucre</option>
+                  <option>El Hatillo</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputUrbaniacion">Urbanizacion</label>
+                <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-10">
+                  <label for="inputDescripcion">Descripcion</label>
+                  <input type="text" class="form-control" id="inputDescripcion"placeholder="Descripcion"> 
+                </div>
+              </div>
+            </div>
+            <!-- <label for="inputAddress">Direccion del Grupo</label>
+                  <input ngModel type="text" class="form-control" id="inputAddress" placeholder="Direccion del Grupo" name="direccion" #direccion="ngModel"> -->
+          </div>
+        </form>
+
+
+        <!-- <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-    <ul [ngClass]="{'open': isOpen}" class="nav-links" *ngIf="authService.isAuthenticated()">
-      <li><a href="/inicio">Inicio</a></li>
-      <li><a href="/perfil">Perfil</a></li>
-      <li><a class="btn" data-toggle="modal" data-target="#modal">Crear Grupo</a></li>
-      <li><a (click)="authService.logoutUser()">Salir</a></li>
-    </ul>
-  </nav>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Sign in</button>
+</form> -->
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Crear Grupo</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputNombreG">Nombre del Grupo</label>
-                    <input ngModel type="text" class="form-control" id="inputNombreG" placeholder="Nombre del Grupo" name="nombre" #nombre="ngModel">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputCodigoG">Codigo del Grupo</label>
-                    <input ngModel type="text" class="form-control" id="inputCodigoG" placeholder="Codigo del Grupo" name="codigo" #codigo="ngModel">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputAddress">Direccion del Grupo</label>
-                  <input ngModel type="text" class="form-control" id="inputAddress" placeholder="Direccion del Grupo" name="direccion" #direccion="ngModel">
-                </div>
-              </form>
 
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Guardar Cambios</button>
-        </div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>
-
+</div>
