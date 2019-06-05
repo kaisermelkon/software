@@ -5,11 +5,13 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { AuthGuardService } from './shared/services/authGuard/auth-guard.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { GrupoComponent } from './components/grupo/grupo.component';
 
 const routes: Routes = [
   {path: 'registrarse', component: RegistroComponent},
-  {path: 'inicio', component: InicioComponent, canActivate: [AuthGuardService]},
-  {path: 'perfil', component: PerfilComponent, canActivate: [AuthGuardService]},
+  {path: 'grupo', component: GrupoComponent},
+  {path: 'inicio', component: InicioComponent},
+  {path: 'perfil', component: PerfilComponent},
   {path: '**', component: LoginComponent},
 ];
 
