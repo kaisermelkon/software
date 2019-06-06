@@ -11,12 +11,13 @@
     <li><a class="btn" href="/inicio">Inicio</a></li>
     <li><a class="btn" href="/perfil">Perfil</a></li>
     <li><a class="btn" data-toggle="modal" data-target="#modal">Crear Grupo</a></li>
+    <li><a class="btn" data-toggle="modal" data-target="#modal2">Unirse a Grupo</a></li>
     <li><a class="btn" (click)="authService.logoutUser()">Salir</a></li>
   </ul>
 </nav>
 
 
-<!-- Modal -->
+<!-- Modal Crear Grupo -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -40,80 +41,52 @@
                   <option>Sucre</option>
                   <option>El Hatillo</option>
                 </select>
-
-            
+      
                 <label for="inputUrbaniacion">Urbanizacion</label>
                 <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" ngModel>
-            
-
-             
-                
+      
                   <label for="inputDescripcion">Descripcion</label>
                   <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" ngModel> 
-                  <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-              
-            <!-- <label for="inputAddress">Direccion del Grupo</label>
-                  <input ngModel type="text" class="form-control" id="inputAddress" placeholder="Direccion del Grupo" name="direccion" #direccion="ngModel"> -->
+                  <br>
+                  <br>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div> -->
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Unirse a Grupo -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Unirse a Grupo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row">
+              <label for="inputCodigoG">Código del Grupo</label>
+              <input ngModel type="text" class="form-control" id="inputCodigoG" placeholder="Código del Grupo"
+                name="nombre" #nombre="ngModel">
+                  <br>
+                  <br>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  </div>
           </div>
         </form>
 
-
-        <!-- <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form> -->
-
-
-
-
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
       </div>
     </div>
   </div>
