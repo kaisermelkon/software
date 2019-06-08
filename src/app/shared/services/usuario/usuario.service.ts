@@ -29,7 +29,7 @@ export class UsuarioService {
     }, err => console.log(err));
   }
 
-  createUsuario(usuario: Usuario) {
+  async createUsuario(usuario: Usuario) {
     this.http.post(`${this.URL_API}`, usuario).subscribe(res => console.log(res), err => console.log(err));
   }
 

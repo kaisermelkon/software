@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
   async onSubmit(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signInUser(email, password);
+    await this.authService.signInUser(email, password);
     await this.sleep(2000);
-    console.log(this.usuarioService.usuario);
+    console.log(this.usuarioService.usuario+"cambio");
   }
 
   isAuthenticated() {
