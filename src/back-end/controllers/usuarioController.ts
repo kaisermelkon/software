@@ -11,7 +11,7 @@ class usuarioController{
     public async getOne (req: Request, res: Response): Promise<any> {
         const {correo}=req.params;
         console.log(correo);
-        const usuarios=await pool.query("SELECT * FROM usuarios WHERE correo = ?",  [correo]);
+        const usuarios= await pool.query("SELECT * FROM usuarios WHERE correo = ?",  [correo]);
         if(usuarios.length>0){
             return res.json(usuarios[0]);
         }

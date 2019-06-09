@@ -14,12 +14,12 @@ export class InicioComponent implements OnInit {
 
   constructor(private grupoService: GrupoService, private usuarioService: UsuarioService) {
     console.log(this.usuarioService.usuario);
-    this.getGrupos();
+    
   }
 
   async getGrupos() {
     
-    this.grupoService.getGruposAdministrador(this.usuarioService.usuario.id).subscribe(res => {
+    await this.grupoService.getGruposAdministrador(this.usuarioService.usuario.id).subscribe(res => {
       this.grupos = res;
       
     }, err => console.log(err));
@@ -27,7 +27,8 @@ export class InicioComponent implements OnInit {
     console.log(this.grupos);
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.getGrupos();
   }
 
   async sleep(ms) {

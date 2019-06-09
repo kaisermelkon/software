@@ -35,9 +35,9 @@ export class NavbarComponent implements OnInit {
     this.direccion.municipio=form.value.municipio;
     this.direccion.descripcion=form.value.descripcion;
     this.direccion.urbanizacion=form.value.urbanizacion;
-    this.direccionService.createDireccion(this.direccion);
-    await this.sleep(1000);
-    this.direccionService.getDireccionId(this.direccion.municipio, this.direccion.urbanizacion, this.direccion.descripcion).subscribe(res => {
+    await this.direccionService.createDireccion(this.direccion);
+    //await this.sleep(1000);
+    await this.direccionService.getDireccionId(this.direccion.municipio, this.direccion.urbanizacion, this.direccion.descripcion).subscribe(res => {
       this.direccionId=res;
     }, err => console.log(err));
     await this.sleep(1000);
@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
     //}
     this.grupo.administradorId=this.usuarioService.usuario.id;
     this.grupo.direccionId=this.direccionId
-    this.grupoService.createGrupo(this.grupo);
+    await this.grupoService.createGrupo(this.grupo);
     await this.sleep(1000);
   }
 
