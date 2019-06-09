@@ -52,9 +52,7 @@
                     <button type="submit" class="btn btn-primary">Guardar Cambios</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          </div> -->
+
         </form>
 
       </div>
@@ -73,7 +71,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <form (ngSubmit)="onSubmit(form2)" #form2="ngForm">
           <div class="form-row">
               <label for="inputCodigoG">Código del Grupo</label>
               <input ngModel type="text" class="form-control" id="inputCodigoG" placeholder="Código del Grupo"
@@ -90,4 +88,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> 

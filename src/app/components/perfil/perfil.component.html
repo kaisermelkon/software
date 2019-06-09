@@ -1,12 +1,115 @@
+<div class="centrado">
+  <br>
+  <br>
+  <form class="formulario">
+    <h2 class="text-center">Nombre</h2>
+    <h3>Información Personal</h3>
+    <blockquote>
+      <p>Nombre: </p>
+      <p>Edad: </p>
+      <p>Cédula: </p>
+      <p>Teléfono:</p>
+      <p>Correo:</p>
+      <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"
+        data-target="#modal3">Editar</button>
+    </blockquote>
+    <h3>Información del Vehiculo</h3>
+    <blockquote>
+      <p>Placa: </p>
+      <p>Marca: </p>
+      <p>Modelo: </p>
+      <p>Color:</p>
+      <p>Año:</p>
+      <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"
+      data-target="#modal4">Editar</button>
+    </blockquote>
+  </form>
+</div>
 
-        <div class="centrado">
-            <nav>
-                <p class="nombre">Nombre</p>
-                <a href="">Informacion</a>
-                <a href="">Vehiculo</a>
-                <a href="">Grupos</a>
-            </nav>
-            <div>
-                <img src="foto de perfil.jpg" width="420" height="300" alt="Foto de Perfil">
+<footer>
+  <div class="row footer">
+    <div class="col-4 p-5">
+      <h3 class="text-light">MetroUber</h3>
+      <br>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Editar Datos Personales -->
+<div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Información Personal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row">
+            <label for="inputNombre">Nombre</label>
+            <input size="35" maxlength="70" class="form-control" placeholder="Usuario" type="text" name="username" #username="ngModel" ngModel
+            required>
+            <label for="inputEdad">Edad</label>
+            <input size="35" maxlength="70" class="form-control" placeholder="Edad" type="text" name="age" #age="ngModel" ngModel
+            required>
+            <label for="inputCedula">Cedula</label>
+            <input size="35" maxlength="70" class="form-control" placeholder="Cedula" type="text" name="cedula" #cedula="ngModel" ngModel
+            required>
+            <label for="inputTelefono">Telefono</label>
+            <input size="35" maxlength="70" class="form-control" placeholder="Telefono" type="text" name="phone" #phone="ngModel" ngModel
+            required>
+            <label for="inputCorreo">Correo</label>
+            <input size="35" maxlength="70" class="form-control" placeholder="Correo" type="email" name="email" #email="ngModel" ngModel required
+            email>
+            <br>
+            <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
+            <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Editar Datos Personales -->
+<div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar Información del Vehículo</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            <div class="modal-body">
+              <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+                <div class="form-row">
+                  <label for="inputPlaca">Placa</label>
+                  <input size="35" maxlength="70" class="form-control" placeholder="Placa" type="text" name="placa" #placa="ngModel" ngModel
+                  required>
+                  <label for="inputMarca">Marca</label>
+                  <input size="35" maxlength="70" class="form-control" placeholder="Marca" type="text" name="marca" #marca="ngModel" ngModel
+                  required>
+                  <label for="inputModelo">Modelo</label>
+                  <input size="35" maxlength="70" class="form-control" placeholder="Modelo" type="text" name="modelo" #modelo="ngModel" ngModel
+                  required>
+                  <label for="inputColor">Color</label>
+                  <input size="35" maxlength="70" class="form-control" placeholder="Color" type="text" name="color" #color="ngModel" ngModel
+                  required>
+                  <label for="inputAno">Año</label>
+                  <input size="35" maxlength="70" class="form-control" placeholder="Ano" type="text" name="ano" #ano="ngModel" ngModel
+                  required>
+                  <br>
+                  <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
+                  <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+                </div>
+              </form>
+      
+            </div>
+          </div>
         </div>
+      </div>
+      
