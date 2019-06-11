@@ -24,6 +24,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { UsuarioService } from './shared/services/usuario/usuario.service';
 import { GrupoService } from './shared/services/grupo/grupo.service';
 import { DireccionService } from './shared/services/direccion/direccion.service';
+import { PertenecesService } from './shared/services/perteneces/perteneces.service';
 
 
 
@@ -47,7 +48,7 @@ import { DireccionService } from './shared/services/direccion/direccion.service'
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService],
+  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

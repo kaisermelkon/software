@@ -6,6 +6,8 @@ import {DireccionService} from './../../shared/services/direccion/direccion.serv
 import {Grupo} from '../../shared/models/Grupos';
 import {Direccion} from './../../shared/models/Direccion';
 import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
+import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
+import { Perteneces } from 'src/app/shared/models/Perteneces';
 
 @Component({
   selector: 'app-navbar',
@@ -18,12 +20,15 @@ export class NavbarComponent implements OnInit {
   grupo: Grupo;
   direccion: Direccion;
   direccionId: any;
+  perteneces: Perteneces;
+  grupoId: any;
   
 
-  constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService) { 
+  constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { 
     console.log(this.authService.token+"hello");
     this.grupo= new Grupo();
     this.direccion = new Direccion();
+    this.perteneces = new Perteneces();
   }
 
   ngOnInit() {
@@ -36,7 +41,7 @@ export class NavbarComponent implements OnInit {
     this.direccion.descripcion=form.value.descripcion;
     this.direccion.urbanizacion=form.value.urbanizacion;
     await this.direccionService.createDireccion(this.direccion);
-    //await this.sleep(1000);
+    await this.sleep(1000);
     await this.direccionService.getDireccionId(this.direccion.municipio, this.direccion.urbanizacion, this.direccion.descripcion).subscribe(res => {
       this.direccionId=res;
     }, err => console.log(err));
@@ -48,6 +53,16 @@ export class NavbarComponent implements OnInit {
     this.grupo.administradorId=this.usuarioService.usuario.id;
     this.grupo.direccionId=this.direccionId
     await this.grupoService.createGrupo(this.grupo);
+    await this.sleep(1000);
+    const grupoId= this.grupoService.getGrupoCodigo(this.grupo.codigo.toString()).subscribe(res => {
+      this.grupoId=res;
+    }, err => console.log(err));
+    await this.sleep(1000);
+    this.perteneces.grupoId=this.grupoId;
+    console.log(this.perteneces.grupoId+" grupo Id");
+    this.perteneces.usuarioId=this.usuarioService.usuario.id;
+    console.log(this.perteneces.usuarioId+" usuario Id");
+    this.pertenecesService.createPerteneces(this.perteneces);
     await this.sleep(1000);
   }
 
