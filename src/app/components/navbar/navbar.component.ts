@@ -31,6 +31,7 @@ export class NavbarComponent implements OnInit {
     this.grupo= new Grupo();
     this.direccion = new Direccion();
     this.perteneces = new Perteneces();
+    this.nuevoPerteneces=new Perteneces();
   }
 
   ngOnInit() {
