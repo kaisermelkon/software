@@ -8,7 +8,7 @@ import {Usuario} from '../../shared/models/Usuario';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
-  providers: [AuthService]
+  
 })
 export class RegistroComponent implements OnInit {
 
