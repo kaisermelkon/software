@@ -13,6 +13,7 @@ export class InicioComponent implements OnInit {
 
   grupos: any = [];
   gruposId: any = [];
+  tempGrupos: any;
 
   constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) {
     console.log(this.usuarioService.usuario);
@@ -28,11 +29,14 @@ export class InicioComponent implements OnInit {
     await this.sleep(2000);
     console.log(this.gruposId+" todos los grupos Id")
     for(let grupo of this.gruposId){
-      console.log(grupo+" deveria ser el id")
-      const temp=this.grupoService.getGrupo(grupo);
-      console.log(temp+" el grupo")
+      console.log(grupo+" deveria ser el id");
+      this.grupoService.getGrupo(grupo).subscribe(res => {
+        this.tempGrupos = res;
+        
+      }, err => console.log(err));;
+      console.log(this.tempGrupos+" el grupo")
       await this.sleep(1000);
-      this.grupos.push(temp);
+      this.grupos.push(this.tempGrupos);
     }
     console.log(this.grupos);
   }

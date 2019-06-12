@@ -22,6 +22,8 @@ export class NavbarComponent implements OnInit {
   direccionId: any;
   perteneces: Perteneces;
   grupoId: any;
+  addGrupoCodigo: any;
+  nuevoPerteneces: any;
   
 
   constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { 
@@ -54,7 +56,7 @@ export class NavbarComponent implements OnInit {
     this.grupo.direccionId = this.direccionId;
     await this.grupoService.createGrupo(this.grupo);
     await this.sleep(1000);
-    const grupoId= this.grupoService.getGrupoCodigo(this.grupo.codigo.toString()).subscribe(res => {
+    this.grupoService.getGrupoCodigo(this.grupo.codigo.toString()).subscribe(res => {
       this.grupoId=res;
     }, err => console.log(err));
     await this.sleep(1000);
@@ -67,7 +69,17 @@ export class NavbarComponent implements OnInit {
   }
 
   async onSubmit2(form: NgForm){
-    
+    this.addGrupoCodigo=form.value.nombre;
+    this.grupoService.getGrupoCodigo(this.addGrupoCodigo).subscribe(res => {
+      this.addGrupoCodigo=res;
+    }, err => console.log(err));
+    console.log(this.addGrupoCodigo+" id del grupo a unirse")
+    await this.sleep(1000);
+    this.nuevoPerteneces.usuarioId=this.usuarioService.usuario.id;
+    this.nuevoPerteneces.grupoId=this.addGrupoCodigo;
+    console.log(this.nuevoPerteneces.usuarioId+" id del usuario a unirse")
+    this.pertenecesService.createPerteneces(this.nuevoPerteneces);
+    await this.sleep(1000);
   }
 
   Open() {
