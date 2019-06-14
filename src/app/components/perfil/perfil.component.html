@@ -10,6 +10,9 @@
       <p>Cédula: {{this.usuario.cedula}} </p>
       <p>Teléfono: {{this.usuario.telefono}} </p>
       <p>Correo: {{this.usuario.correo}} </p>
+      <p>Municipio: {{this.usuario.municipio}}</p>
+      <p>Urbanizacion: {{this.usuario.urbanizacion}}</p>
+      <p>Descripcion: {{this.usuario.descripcion}}</p>
       <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"
         data-target="#modal3">Editar</button>
     </blockquote>
@@ -60,6 +63,17 @@
             <label for="inputTelefono">Telefono</label>
             <input size="35" maxlength="70" class="form-control" placeholder="Telefono" type="text" name="phone" #phone="ngModel" [(ngModel)]="this.usuario.telefono"
             required>
+            <label for="inputMunicipio">Municipio</label>
+            <select id="inputMunicipio" class="form-control" name="municipio" #municipio="ngModel" ngModel>
+              <option selected>Baruta</option>
+              <option>Sucre</option>
+              <option>El Hatillo</option>
+            </select>
+            <label for="inputUrbanizacion">Urbanizacion</label>
+            <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" ngModel>
+              <label for="inputDescripcion">Descripcion</label>
+              <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" ngModel> 
+              
             <br>
             <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
             <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
