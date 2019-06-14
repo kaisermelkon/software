@@ -31,8 +31,12 @@ class usuarioController{
 
     public async update (req: Request, res:Response): Promise<void> {
         const {id}=req.params;
+        /*const {nombre}=req.params;
+        const {edad}=req.params;
+        const {cedula}=req.params;
+        const {telefono}=req.params;*/
         await pool.query('UPDATE usuarios SET ? WHERE id = ?', [req.body, id]);
-        res.json({text: "Usuario actualizado"});
+        res.json({message: "Usuario actualizado"});
     } 
 }
 

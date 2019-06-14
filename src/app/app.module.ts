@@ -25,6 +25,7 @@ import { UsuarioService } from './shared/services/usuario/usuario.service';
 import { GrupoService } from './shared/services/grupo/grupo.service';
 import { DireccionService } from './shared/services/direccion/direccion.service';
 import { PertenecesService } from './shared/services/perteneces/perteneces.service';
+import { CarroService } from './shared/services/carro/carro.service';
 
 
 
@@ -48,7 +49,7 @@ import { PertenecesService } from './shared/services/perteneces/perteneces.servi
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService],
+  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService, CarroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,8 +33,8 @@ export class UsuarioService {
     this.http.post(`${this.URL_API}`, usuario).subscribe(res => console.log(res), err => console.log(err));
   }
 
-  updateUsuario(usuario: Usuario, id: string): Observable<any> {
-    return this.http.put(`${this.URL_API}/${id}`, usuario);
+  updateUsuario(usuario: Usuario, id: string){
+    return this.http.put(`${this.URL_API}/${id}`, usuario).subscribe(res => console.log(res), err => console.log(err));;
   }
 
   deleteUsuario(id: string){

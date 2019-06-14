@@ -6,6 +6,7 @@ import baseRoutes from './routes/UsuarioRoutes';
 import groupRoutes from './routes/groupRoutes';
 import direccionRoutes from './routes/direccionRoutes';
 import pertenecesRoutes from './routes/pertenecesRoutes';
+import carroRoutes from './routes/carroRoutes';
 
 
 class Server {
@@ -31,6 +32,7 @@ class Server {
         this.app.use('/api/grupos', groupRoutes);
         this.app.use('/api/direcciones', direccionRoutes);
         this.app.use('/api/perteneces', pertenecesRoutes);
+        this.app.use('/api/carros', carroRoutes);
 
         
     }
