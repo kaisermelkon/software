@@ -20,6 +20,10 @@ export class InicioComponent implements OnInit {
     
   }
 
+  async ngOnInit() {
+    await this.getGrupos();
+  }
+
   async getGrupos() {
     
     await this.pertenecesService.getPerGrupos(this.usuarioService.usuario.id).subscribe(res => {
@@ -41,9 +45,24 @@ export class InicioComponent implements OnInit {
     console.log(this.grupos);
   }
 
-  async ngOnInit() {
-    await this.getGrupos();
+  async detalles(id: number){
+    console.log(id);
+    this.grupoService.getGrupoDetalle(id.toString());
   }
+
+  async grupoCodigo(grupo: Grupo){
+    console.log(this.usuarioService.usuario.id+"+"+grupo.administradorId);
+    if(this.usuarioService.usuario.id===grupo.administradorId){
+      console.log("true")
+      return true;
+    }
+    else{
+      console.log("false")
+      return false;
+    }
+  }
+
+
 
   async sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

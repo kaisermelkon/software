@@ -16,6 +16,7 @@ class PertenecesRoutes{
         this.router.delete('/:id', pertenecesController.delete);
         this.router.put('/:id', pertenecesController.update);
         this.router.get('/perGrupos/:usuarioId', pertenecesController.getPerGrupos);
+        this.router.get('/perUsuarios/:grupoId', pertenecesController.getPerUsuarios);
     }
 
 }

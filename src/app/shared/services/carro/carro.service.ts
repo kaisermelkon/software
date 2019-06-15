@@ -36,7 +36,7 @@ export class CarroService {
   }
 
   updateCarro(carro: Carro, id: string) {
-    return this.http.put(`${this.URL_API}/${id}`, carro).subscribe(res => console.log(res), err => console.log(err));;
+    return this.http.put(`${this.URL_API}/${id}`, carro).subscribe(res => console.log(res), err => console.log(err));
   }
 
   deleteCarro(id: string){

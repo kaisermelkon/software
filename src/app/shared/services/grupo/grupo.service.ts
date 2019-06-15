@@ -11,6 +11,7 @@ export class GrupoService {
 
 
   URL_API = 'http://localhost:3000/api/grupos';
+  grupo: any;
 
 
   constructor(private http: HttpClient) { 
@@ -47,5 +48,12 @@ export class GrupoService {
 
   getGrupoCodigo(codigo: string){
     return this.http.get(`${this.URL_API}/perteneces/${codigo}`);
+  }
+
+  getGrupoDetalle(id: string){
+    return this.http.get(`${this.URL_API}/detalle/${id}`).subscribe(res => {
+      this.grupo = res;
+      console.log("it really worked")
+    }, err => console.log(err));
   }
 }

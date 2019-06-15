@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
+import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
+import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
+import { Usuario } from 'src/app/shared/models/Usuario';
+import { Grupo } from 'src/app/shared/models/Grupos';
+import { Perteneces } from 'src/app/shared/models/Perteneces';
 
 @Component({
   selector: 'app-grupo',
@@ -7,9 +13,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrupoComponent implements OnInit {
 
-  constructor() { }
+  administrador: boolean = false;
+  usuarios: any=[];
+  usuariosId: any=[];
+  tempUsuarios: any;
 
-  ngOnInit() {
+  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { }
+
+  async ngOnInit() {
+    await this.sleep(1000);
+    if(this.grupoService.grupo.administradorId===this.usuarioService.usuario.id){
+      this.administrador=true;
+    }
+    await this.pertenecesService.getPerUsuarios(this.grupoService.grupo.id).subscribe(res => {
+      this.usuariosId = res;
+      
+    }, err => console.log(err));
+    await this.sleep(2000);
+    console.log(this.usuariosId+" todos los usuarios Id")
+    for(let usuario of this.usuariosId){
+      console.log(usuario+" deveria ser el id");
+      this.usuarioService.getUsuarioDetalle(usuario).subscribe(res => {
+        this.tempUsuarios = res;
+        
+      }, err => console.log(err));;
+      console.log(this.tempUsuarios+" el usuario")
+      await this.sleep(1000);
+      this.usuarios.push(this.tempUsuarios);
+    }
+  }
+
+  conCarro(usuario: Usuario){
+    if(usuario.carroId===null){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  async sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }

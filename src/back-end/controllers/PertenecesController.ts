@@ -50,6 +50,23 @@ class PertenecesController{
         }
         res.status(404).json({text: "perteneces no encontrado"});
     }
+
+    public async getPerUsuarios (req: Request, res: Response): Promise<any> {
+        const {grupoId}=req.params;
+        console.log(grupoId+"hiodhioqhdhwhda");
+        const perteneces=await pool.query("SELECT * FROM perteneces WHERE grupoId = ?", [grupoId]);
+        const usuariosId=[];
+        console.log(perteneces+" esto es perteneces")
+        if(perteneces.length>0){
+            for(let pert of perteneces){
+                console.log(pert + " esto es pert");
+                usuariosId.push(pert.usuarioId);
+            }
+            console.log(usuariosId+" esto es usuarios id");
+            return res.json(usuariosId);
+        }
+        res.status(404).json({text: "perteneces no encontrado"});
+    }
 }
 
 const pertenecesController=new PertenecesController();

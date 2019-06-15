@@ -45,4 +45,8 @@ export class PertenecesService {
     return this.http.get(`${this.URL_API}/perGrupos/${usuarioId}`);
   }
 
+  getPerUsuarios(grupoId: string){
+    return this.http.get(`${this.URL_API}/perUsuarios/${grupoId}`);
+  }
+
 }

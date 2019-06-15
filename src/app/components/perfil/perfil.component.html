@@ -25,9 +25,9 @@
     </blockquote>
     <h3>Dirección</h3>
     <blockquote>
-    <p>Municipio: {{this.usuario.municipio}}</p>
-    <p>Urbanizacion: {{this.usuario.urbanizacion}}</p>
-    <p>Descripcion: {{this.usuario.descripcion}}</p>
+    <p>Municipio: {{this.direccion.municipio}}</p>
+    <p>Urbanizacion: {{this.direccion.urbanizacion}}</p>
+    <p>Descripcion: {{this.direccion.descripcion}}</p>
     <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"
     data-target="#modal5">Editar</button>
     </blockquote>
@@ -129,7 +129,7 @@
         </div>
       </div>
 
-      <!-- Modal Editar Datos Personales -->
+      <!-- Modal Editar Datos de Direccion -->
 <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -140,18 +140,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <form (ngSubmit)="onSubmit3(form3)" #form3="ngForm">
           <div class="form-row">
             <label for="inputMunicipio">Municipio</label>
-            <select id="inputMunicipio" class="form-control" name="municipio" #municipio="ngModel" ngModel>
+            <select id="inputMunicipio" class="form-control" name="municipio" #municipio="ngModel" [(ngModel)]="this.direccion.municipio">
               <option selected>Baruta</option>
               <option>Sucre</option>
               <option>El Hatillo</option>
             </select>
             <label for="inputUrbanizacion">Urbanizacion</label>
-            <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" ngModel>
+            <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" [(ngModel)]="this.direccion.urbanizacion">
               <label for="inputDescripcion">Descripcion</label>
-              <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" ngModel> 
+              <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="this.direccion.descripcion"> 
               
             <br>
             <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>

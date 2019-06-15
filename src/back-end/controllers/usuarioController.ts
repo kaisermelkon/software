@@ -38,6 +38,16 @@ class usuarioController{
         await pool.query('UPDATE usuarios SET ? WHERE id = ?', [req.body, id]);
         res.json({message: "Usuario actualizado"});
     } 
+
+    public async getUsuarioDetalle (req: Request, res: Response): Promise<any> {
+        const {id}=req.params;
+        console.log(id);
+        const usuarios= await pool.query("SELECT * FROM usuarios WHERE id = ?",  [id]);
+        if(usuarios.length>0){
+            return res.json(usuarios[0]);
+        }
+        res.status(404).json({text: "Usuario no encontrado"});
+    }
 }
 
 const usuariosController=new usuarioController();
