@@ -4,6 +4,7 @@
     background-position: center;
   }
 
+
   .unica{
 width: 70%;
 margin: auto;
@@ -36,7 +37,8 @@ margin: auto;
   }
   
   a {
-    display: block;
+    display: inline-block;
+    margin: 1px;
   }
   
   footer {
