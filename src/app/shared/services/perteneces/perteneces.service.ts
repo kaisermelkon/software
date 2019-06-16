@@ -38,7 +38,7 @@ export class PertenecesService {
   }
 
   deletePerteneces(id: string){
-    return this.http.delete(`${this.URL_API}/${id}`);
+    return this.http.delete(`${this.URL_API}/${id}`).subscribe(res => console.log(res), err => console.log(err));;
   }
 
   getPerGrupos(usuarioId: string){
@@ -47,6 +47,10 @@ export class PertenecesService {
 
   getPerUsuarios(grupoId: string){
     return this.http.get(`${this.URL_API}/perUsuarios/${grupoId}`);
+  }
+
+  getPerUsuariosGrupos(grupoId: string, usuarioId: string){
+    return this.http.get(`${this.URL_API}/perteneces/${grupoId}/${usuarioId}`);
   }
 
 }

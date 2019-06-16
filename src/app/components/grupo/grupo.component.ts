@@ -17,6 +17,7 @@ export class GrupoComponent implements OnInit {
   usuarios: any=[];
   usuariosId: any=[];
   tempUsuarios: any;
+  pertenecesId: any;
 
   constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { }
 
@@ -29,7 +30,7 @@ export class GrupoComponent implements OnInit {
       this.usuariosId = res;
       
     }, err => console.log(err));
-    await this.sleep(2000);
+    await this.sleep(1000);
     console.log(this.usuariosId+" todos los usuarios Id")
     for(let usuario of this.usuariosId){
       console.log(usuario+" deveria ser el id");
@@ -50,6 +51,35 @@ export class GrupoComponent implements OnInit {
     else{
       return false;
     }
+  }
+
+  eliminarEnabled(usuario: Usuario){
+    if(this.administrador){
+      if(usuario.id===this.grupoService.grupo.administradorId){
+        return false;
+      }
+      else{
+        return true;
+      }
+    }
+    else{
+      if(usuario.id===this.usuarioService.usuario.id){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+  }
+
+  async eliminar(usuario: Usuario){
+    this.pertenecesService.getPerUsuariosGrupos(this.grupoService.grupo.id.toString(), usuario.id.toString()).subscribe(res => {
+      this.pertenecesId = res;
+    }, err => console.log(err));
+    await this.sleep(1000);
+    console.log(this.pertenecesId+" este es el perteneces id")
+    this.pertenecesService.deletePerteneces(this.pertenecesId);
+    await this.sleep(1000);
   }
 
   async sleep(ms) {
