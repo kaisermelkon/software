@@ -4,8 +4,8 @@
     <h2 class="center">Lista de Grupos</h2>
    
       <div class="row" > 
-        <div class="col-md-3 col-sm-6" *ngFor="let grupo of grupos">
-          <div class="card text-center"> 
+        <div class="col-md-3 col-sm-6 " *ngFor="let grupo of grupos">
+          <div class="card text-center conaltura"> 
             <div class="card-block"> 
               <img src="/src/city1.jpg" alt="" class="img-fluid">
               <div class="card-tittle">
@@ -14,7 +14,6 @@
               <div class="card-text" *ngIf="grupo.administradorId===usuarioService.usuario.id">
                 <p>{{grupo.codigo}}</p>
               </div>
-              <br>
               <a style="margin-top: 10px;" routerLink="/grupo" class="btn btn-success" (click)="detalles(grupo.id)">Ver Detalles</a>
             </div>
           </div>

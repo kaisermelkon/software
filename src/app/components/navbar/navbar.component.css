@@ -24,16 +24,22 @@ ul li{
   cursor: pointer;
 }
 
+.azul{
+  color: aqua;
+  display: inline-block;
+}
+
 .logo{
   /*El color del logo es casi blanco*/
   /* color: rgb(226,226,266); */
-  color: aqua;
+  color: orange;
   /*Todo el logo sea en mayuscula*/
   text-transform: uppercase;
   /*Espacio entre las letras del logo, este si puede ser en px*/
   letter-spacing: 5px;
   /*Este tambien puede ser en px, en el caso del nav*/
   font-size: 20px;
+  display: inline-block;
 }
 
 /*El ul dentro del nav tag*/
