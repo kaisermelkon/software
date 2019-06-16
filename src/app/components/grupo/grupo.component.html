@@ -23,7 +23,7 @@
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.correo}}</td>
                 <td>
-                  <button href="#" class="btn btn-success" [disabled]="conCarro(usuario)">Pedir Cola</button>
+                  <button href="#" class="btn btn-success" [disabled]="conCarro(usuario)" data-toggle="modal" data-target="#modal6">Pedir Cola</button>
                   <button href="#" class="btn btn-danger" [disabled]="!eliminarEnabled(usuario)" (click)="eliminar(usuario)">Eliminar</button>
                 </td>
               </tr>
@@ -54,3 +54,42 @@
     </div>
   </div>
 </footer>
+
+<!-- Modal Datos Usuario -->
+<div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit2(form2)" #form2="ngForm">
+          <div class="form-row">
+              <h4>Información del Vehiculo</h4>
+              <blockquote>
+                <p>Placa: {{this.carro.placa}}</p>
+                <p>Marca: {{this.carro.marca}}</p>
+                <p>Modelo: {{this.carro.modelo}}</p>
+                <p>Color: {{this.carro.color}}</p>
+                <p>Año: {{this.carro.ano}}</p>
+              </blockquote>
+              <h4>Dirección</h4>
+              <blockquote>
+              <p>Municipio: {{this.direccion.municipio}}</p>
+              <p>Urbanizacion: {{this.direccion.urbanizacion}}</p>
+              <p>Descripcion: {{this.direccion.descripcion}}</p>
+              </blockquote>
+            <br>
+            <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Regresar</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

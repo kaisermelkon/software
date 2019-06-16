@@ -26,6 +26,7 @@ import { GrupoService } from './shared/services/grupo/grupo.service';
 import { DireccionService } from './shared/services/direccion/direccion.service';
 import { PertenecesService } from './shared/services/perteneces/perteneces.service';
 import { CarroService } from './shared/services/carro/carro.service';
+import { InvitacionesComponent } from './components/invitaciones/invitaciones.component';
 
 
 
@@ -37,7 +38,8 @@ import { CarroService } from './shared/services/carro/carro.service';
     RegistroComponent,
     InicioComponent,
     PerfilComponent,
-    GrupoComponent
+    GrupoComponent,
+    InvitacionesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
