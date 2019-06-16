@@ -60,6 +60,15 @@ class GruposController{
         }
         res.status(404).json({text: "grupo no encontrado"});
     }
+
+    public async getGrupoDetalle (req: Request, res: Response): Promise<any> {
+        const {id}=req.params;
+        const grupos=await pool.query("SELECT * FROM grupos WHERE id = ?", [id]);
+        if(grupos.length>0){
+            return res.json(grupos[0]);
+        }
+        res.status(404).json({text: "Group not found"});
+    }
 }
 
 const gruposController=new GruposController();

@@ -18,6 +18,7 @@ class groupRoutes{
         this.router.get('/:codigo', gruposController.getCodigos);
         this.router.get('/administrador/:id', gruposController.getGruposAdministrador);
         this.router.get('/perteneces/:codigo', gruposController.getGrupoCodigo);
+        this.router.get('/detalle/:id', gruposController.getGrupoDetalle);
     }
 
 }

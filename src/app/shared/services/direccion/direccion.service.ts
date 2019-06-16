@@ -11,12 +11,13 @@ import {Observable} from 'rxjs';
 export class DireccionService {
 
   direccionId: any;
+  direccion: any;
 
   URL_API = 'http://localhost:3000/api/direcciones';
 
 
   constructor(private http: HttpClient) { 
-    
+    this.direccion=new Direccion();
   }
 
   getDirecciones() {
@@ -25,15 +26,17 @@ export class DireccionService {
 
   getDireccion(id: string){
     
-    return this.http.get(`${this.URL_API}/${id}`).subscribe(res => console.log(res), err => console.log(err));
+    return this.http.get(`${this.URL_API}/${id}`).subscribe(res => {
+      this.direccion = res;
+    }, err => console.log(err));
   }
 
   createDireccion(direccion: Direccion) {
     this.http.post(`${this.URL_API}`, direccion).subscribe(res => console.log(res), err => console.log(err));
   }
 
-  updateDireccion(direccion: Direccion, id: string): Observable<any> {
-    return this.http.put(`${this.URL_API}/${id}`, direccion);
+  updateDireccion(direccion: Direccion, id: string) {
+    this.http.put(`${this.URL_API}/${id}`, direccion).subscribe(res => console.log(res), err => console.log(err));
   }
 
   deleteDireccion(id: string){

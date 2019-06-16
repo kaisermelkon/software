@@ -41,4 +41,8 @@ export class UsuarioService {
     return this.http.delete(`${this.URL_API}/${id}`);
   }
 
+  getUsuarioDetalle(id: string){
+    return this.http.get(`${this.URL_API}/detalle/${id}`);
+  }
+
 }

@@ -11,9 +11,11 @@
               <div class="card-tittle">
                 <h4>{{grupo.nombre}}</h4>
               </div>
-              <div class="card-text"></div>
+              <div class="card-text" *ngIf="grupo.administradorId===usuarioService.usuario.id">
+                <p>{{grupo.codigo}}</p>
+              </div>
               <br>
-              <a style="margin-top: 10px;" routerLink="/grupo" class="btn btn-success">Ver Detalles</a>
+              <a style="margin-top: 10px;" routerLink="/grupo" class="btn btn-success" (click)="detalles(grupo.id)">Ver Detalles</a>
             </div>
           </div>
         </div>
