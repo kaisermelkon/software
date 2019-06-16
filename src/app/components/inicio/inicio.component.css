@@ -32,6 +32,9 @@
 
 a {
   display: block;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
 }
 
 footer {
@@ -51,4 +54,5 @@ footer {
 .conaltura{
   height: 141px;
   margin: 10px 0px;
+  position: relative;
 }
