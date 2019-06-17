@@ -23,9 +23,9 @@
                 <td>{{usuario.telefono}}</td>
                 <td>{{usuario.correo}}</td>
                 <td>
-                  <button href="#" class="btn btn-success" [disabled]="conCarro(usuario)" data-toggle="modal"
+                  <button href="#" class="btn btn-success espacio" [disabled]="conCarro(usuario)" data-toggle="modal"
                     data-target="#modal7" (click)="activarModal(usuario)">Pedir Cola</button>
-                  <button href="#" class="btn btn-danger" [disabled]="!eliminarEnabled(usuario)"
+                  <button href="#" class="btn btn-danger espacio" [disabled]="!eliminarEnabled(usuario)"
                     (click)="eliminar(usuario)">Eliminar</button>
                 </td>
               </tr>
@@ -43,6 +43,48 @@
 
 </div>
 
+<!-- Modal Editar Datos Personales -->
+<div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row">
+            <label class="modalish"><b>Informacion del Usuario</b></label>
+            <br>
+            <blockquote class="modalish">
+              <p>Nombre: {{this.usuarioModal.nombre}}</p>
+              <p>Telefono: {{this.usuarioModal.telefono}}</p>
+              <p>Correo: {{this.usuarioModal.correo}}</p>
+            </blockquote>
+            <label class="modalish"><b>Informacion del Vehiculo</b></label>
+            <br>
+            <blockquote class="modalish">
+              <p>Placa: {{this.carroService.carro.placa}}</p>
+              <p>Marca: {{this.carroService.carro.marca}}</p>
+              <p>Modelo: {{this.carroService.carro.modelo}}</p>
+              <p>Año: {{this.carroService.carro.ano}}</p>
+              <p>Color: {{this.carroService.carro.color}}</p>
+            </blockquote>
+            <br>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary espacio modalish" >Pedir Cola</button>
+            <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+          </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="row footer">
     <div class="col-4 p-5">
@@ -57,39 +99,3 @@
   </div>
 </footer>
 
-<!-- Modal Datos Usuario -->
-<div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-          <div class="form-row">
-            <h4>Información del Usuario</h4>
-            <blockquote>
-              <p>Nombre: {{this.usuarioModal.nombre}}</p>
-              <p>Telefono: {{this.usuarioModal.telefono}}</p>
-              <p>Correo: {{this.usuarioModal.correo}}</p>
-            </blockquote>
-            <h4>Carro</h4>
-            <blockquote>
-              <p>Placa: {{this.carroService.carro.placa}}</p>
-              <p>Marca: {{this.carroService.carro.marca}}</p>
-              <p>Modelo: {{this.carroService.carro.modelo}}</p>
-              <p>Año: {{this.carroService.carro.ano}}</p>
-              <p>Color: {{this.carroService.carro.color}}</p>
-            </blockquote>
-            <br>
-            <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Pedir Cola</button>
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-</div>
