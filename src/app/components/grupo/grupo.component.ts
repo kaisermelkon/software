@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
 import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
 import { Usuario } from 'src/app/shared/models/Usuario';
 import { Grupo } from 'src/app/shared/models/Grupos';
 import { Perteneces } from 'src/app/shared/models/Perteneces';
+import { CarroService } from 'src/app/shared/services/carro/carro.service';
 
 @Component({
   selector: 'app-grupo',
@@ -18,10 +20,12 @@ export class GrupoComponent implements OnInit {
   usuariosId: any=[];
   tempUsuarios: any;
   pertenecesId: any;
+  usuarioModal: any;
 
-  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { }
+  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService) { }
 
   async ngOnInit() {
+    this.usuarioModal= new Usuario();
     await this.sleep(1000);
     if(this.grupoService.grupo.administradorId===this.usuarioService.usuario.id){
       this.administrador=true;
@@ -45,7 +49,7 @@ export class GrupoComponent implements OnInit {
   }
 
   conCarro(usuario: Usuario){
-    if(usuario.carroId===null){
+    if(usuario.carroId===null||this.usuarioService.usuario.id===usuario.id){
       return true;
     }
     else{
@@ -80,6 +84,16 @@ export class GrupoComponent implements OnInit {
     console.log(this.pertenecesId+" este es el perteneces id")
     this.pertenecesService.deletePerteneces(this.pertenecesId);
     await this.sleep(1000);
+  }
+
+  async activarModal(usuario: Usuario){
+    this.usuarioModal=usuario;
+    this.carroService.getCarro(usuario.carroId.toString());
+    await this.sleep(1000);
+  }
+
+  async onSubmit(form: NgForm){
+
   }
 
   async sleep(ms) {
