@@ -49,29 +49,38 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-          <div class="form-row">
-            <label class="modalish"><b>Informacion del Usuario</b></label>
+          <div class="form-row row">
+
+            <div class="col-12">
+            <label class="modalish"><b>Direccion del Usuario</b></label>
+            </div>
             <br>
-            <blockquote class="modalish">
-              <p>Nombre: {{this.usuarioModal.nombre}}</p>
-              <p>Telefono: {{this.usuarioModal.telefono}}</p>
-              <p>Correo: {{this.usuarioModal.correo}}</p>
-            </blockquote>
+            <div class="col-12">
+            <!-- <blockquote class="modalish"> -->
+              <p>Municipio: {{this.usuarioModal.municipio}}</p>
+              <p>Urbanizacion: {{this.usuarioModal.urbanizacion}}</p>
+              <p>Descripcion: {{this.usuarioModal.descripcion}}</p>
+            <!-- </blockquote> -->
+            </div>
+            <div class="col-12">
             <label class="modalish"><b>Informacion del Vehiculo</b></label>
+            </div>
             <br>
-            <blockquote class="modalish">
+            <div class="col-12">
+            <!-- <blockquote class="modalish"> -->
               <p>Placa: {{this.carroService.carro.placa}}</p>
               <p>Marca: {{this.carroService.carro.marca}}</p>
               <p>Modelo: {{this.carroService.carro.modelo}}</p>
               <p>Año: {{this.carroService.carro.ano}}</p>
               <p>Color: {{this.carroService.carro.color}}</p>
-            </blockquote>
+            <!-- </blockquote> -->
+            </div>
             <br>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary espacio modalish" >Pedir Cola</button>
