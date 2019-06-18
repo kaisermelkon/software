@@ -27,6 +27,7 @@ import { DireccionService } from './shared/services/direccion/direccion.service'
 import { PertenecesService } from './shared/services/perteneces/perteneces.service';
 import { CarroService } from './shared/services/carro/carro.service';
 import { InvitacionesComponent } from './components/invitaciones/invitaciones.component';
+import { InvitacionService } from './shared/services/invitacion/invitacion.service';
 
 
 
@@ -51,7 +52,7 @@ import { InvitacionesComponent } from './components/invitaciones/invitaciones.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService, CarroService],
+  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService, CarroService, InvitacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

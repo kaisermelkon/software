@@ -21,22 +21,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let usuario of usuarios">
-                <th scope="row">{{usuario.nombre}}</th>
-                <td>{{usuario.telefono}}</td>
-                <td>{{usuario.correo}}</td>
-                <td>{{usuario.grupo}}</td>
-                <td>{{usuario.tipo}}</td>
-                <td>                  
-                  <button href="#" class="btn btn-warning espacio" [disabled]="conCarro(usuario)" data-toggle="modal"
-                    data-target="#modal8" (click)="activarModal(usuario)">Informacion</button>
-                  <button href="#" class="btn btn-success espacio" [disabled]="conCarro(usuario)">Aceptar</button>
-                  <button href="#" class="btn btn-danger espacio" [disabled]="conCarro(usuario)">Finalizar</button>
+              <tr *ngFor="let solicitud of solicitudes">
+                <th scope="row">{{solicitud.usuarioNombre}}</th>
+                <td>{{solicitud.usuarioTelefono}}</td>
+                <td>{{solicitud.usuarioCorreo}}</td>
+                <td>{{solicitud.grupoNombre}}</td>
+                <td>{{solicitud.invitacionTipo}}</td>
+                <td>
+                  <button href="#" class="btn btn-warning espacio" data-toggle="modal" data-target="#modal8"
+                    (click)="activarModal(solicitud)">Informacion</button>
+                  <button href="#" class="btn btn-danger espacio">Eliminar</button>
                 </td>
-              </tr> 
+              </tr>
             </tbody>
           </table>
-          
+
         </div>
       </div>
     </div>
@@ -49,48 +48,49 @@
 
 <!-- Modal Mostrar Datos Personales -->
 <div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-            <div class="form-row row">
-              <div class="col-12">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row row">
+            <div class="col-12">
               <label class="modalish"><b>Direccion del Usuario</b></label>
-              </div>
-              <br>
-              <div class="col-12">
-                <p>Municipio: {{this.usuarioModal.municipio}}</p>
-                <p>Urbanizacion: {{this.usuarioModal.urbanizacion}}</p>
-                <p>Descripcion: {{this.usuarioModal.descripcion}}</p>
-              </div>
-              <div class="col-12">
+            </div>
+            <br>
+            <div class="col-12">
+              <p>Municipio: </p>
+              <p>Urbanizacion:</p>
+              <p>Descripcion: </p>
+            </div>
+            <div class="col-12">
               <label class="modalish"><b>Informacion del Vehiculo</b></label>
-              </div>
-              <br>
-              <div class="col-12">
-                <p>Placa: {{this.carroService.carro.placa}}</p>
-                <p>Marca: {{this.carroService.carro.marca}}</p>
-                <p>Modelo: {{this.carroService.carro.modelo}}</p>
-                <p>Año: {{this.carroService.carro.ano}}</p>
-                <p>Color: {{this.carroService.carro.color}}</p>
-              </div>
-              <br>
-              <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-lg btn-block espacio" data-dismiss="modal">Regresar</button>
             </div>
+            <br>
+            <div class="col-12">
+              <p>Placa: </p>
+              <p>Marca:</p>
+              <p>Modelo: </p>
+              <p>Año: </p>
+              <p>Color: </p>
             </div>
-          </form>
-  
-        </div>
+            <br>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary btn-lg btn-block espacio"
+                data-dismiss="modal">Regresar</button>
+            </div>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
+</div>
 
 <footer>
   <div class="row footer">

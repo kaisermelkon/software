@@ -49,7 +49,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -57,16 +57,16 @@
         <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-row row">
             <div class="col-12">
-            <label class="modalish"><b>Direccion del Usuario</b></label>
+              <label class="modalish"><b>Direccion del Usuario</b></label>
             </div>
             <br>
             <div class="col-12">
-              <p>Municipio: {{this.usuarioModal.municipio}}</p>
-              <p>Urbanizacion: {{this.usuarioModal.urbanizacion}}</p>
-              <p>Descripcion: {{this.usuarioModal.descripcion}}</p>
+              <p>Municipio: {{this.direccionService.direccion.municipio}}</p>
+              <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>
+              <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>
             </div>
             <div class="col-12">
-            <label class="modalish"><b>Informacion del Vehiculo</b></label>
+              <label class="modalish"><b>Informacion del Vehiculo</b></label>
             </div>
             <br>
             <div class="col-12">
@@ -76,11 +76,16 @@
               <p>Año: {{this.carroService.carro.ano}}</p>
               <p>Color: {{this.carroService.carro.color}}</p>
             </div>
+            <div>
+              <p><b>Ingrese una descripcion</b></p>
+              <input ngModel size="35" maxlength="255" placeholder="" name="descripcion" type="text"
+                #descripcion="ngModel">
+            </div>
             <br>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary espacio modalish" >Pedir Cola</button>
-            <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
-          </div>
+              <button type="submit" class="btn btn-primary espacio modalish">Pedir Cola</button>
+              <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+            </div>
           </div>
         </form>
 
@@ -102,4 +107,3 @@
     </div>
   </div>
 </footer>
-

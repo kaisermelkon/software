@@ -53,7 +53,6 @@ export class GrupoService {
   getGrupoDetalle(id: string){
     return this.http.get(`${this.URL_API}/detalle/${id}`).subscribe(res => {
       this.grupo = res;
-      console.log("it really worked")
     }, err => console.log(err));
   }
 }

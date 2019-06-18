@@ -3,10 +3,14 @@ import { NgForm } from '@angular/forms';
 import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
 import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
+import { CarroService } from 'src/app/shared/services/carro/carro.service';
+import { DireccionService } from 'src/app/shared/services/direccion/direccion.service';
+import { InvitacionService } from 'src/app/shared/services/invitacion/invitacion.service';
 import { Usuario } from 'src/app/shared/models/Usuario';
 import { Grupo } from 'src/app/shared/models/Grupos';
 import { Perteneces } from 'src/app/shared/models/Perteneces';
-import { CarroService } from 'src/app/shared/services/carro/carro.service';
+import { Direccion } from 'src/app/shared/models/Direccion';
+import { Invitacion } from 'src/app/shared/models/Invitaciones';
 
 @Component({
   selector: 'app-grupo',
@@ -21,11 +25,13 @@ export class GrupoComponent implements OnInit {
   tempUsuarios: any;
   pertenecesId: any;
   usuarioModal: any;
+  invitacion: any;
 
-  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService) { }
+  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService, private direccionService: DireccionService, private invitacionService: InvitacionService) { }
 
   async ngOnInit() {
-    this.usuarioModal= new Usuario();
+    this.invitacion= new Invitacion();
+    this.usuarioModal=new Usuario();
     await this.sleep(1000);
     if(this.grupoService.grupo.administradorId===this.usuarioService.usuario.id){
       this.administrador=true;
@@ -88,12 +94,21 @@ export class GrupoComponent implements OnInit {
 
   async activarModal(usuario: Usuario){
     this.usuarioModal=usuario;
+    this.direccionService.getDireccion(usuario.direccionId.toString());
+    await this.sleep(1000);
     this.carroService.getCarro(usuario.carroId.toString());
     await this.sleep(1000);
   }
 
   async onSubmit(form: NgForm){
-
+    console.log(true)
+    this.invitacion.usuarioId=this.usuarioService.usuario.id;
+    this.invitacion.grupoId=this.grupoService.grupo.id;
+    this.invitacion.tipo="invitacion";
+    this.invitacion.descripcion=form.value.descripcion;
+    this.invitacion.usuarioExId=this.usuarioModal.id;
+    this.invitacionService.createInvitacion(this.invitacion);
+    await this.sleep(1000);
   }
 
   async sleep(ms) {

@@ -4,8 +4,8 @@ import pool from '../database';
 class DireccionController{
 
     public async get (req: Request, res: Response){
-        const usuarios=await pool.query("SELECT * FROM direccions");
-        res.json(usuarios);
+        const direcciones=await pool.query("SELECT * FROM direccions");
+        res.json(direcciones);
     }
     
     public async getOne (req: Request, res: Response): Promise<any> {
