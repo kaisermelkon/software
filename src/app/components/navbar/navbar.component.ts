@@ -8,6 +8,7 @@ import { Direccion } from './../../shared/models/Direccion';
 import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
 import { Perteneces } from 'src/app/shared/models/Perteneces';
+import { InvitacionService } from 'src/app/shared/services/invitacion/invitacion.service';
 
 @Component({
   selector: 'app-navbar',
@@ -24,17 +25,19 @@ export class NavbarComponent implements OnInit {
   grupoId: any;
   addGrupoCodigo: any;
   nuevoPerteneces: any;
-  
+  solicitudesPendientes: boolean = false;
+  invitaciones: any = []
 
-  constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) { 
-    console.log(this.authService.token+"hello");
-    this.grupo= new Grupo();
+
+  constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private invitacionService: InvitacionService) {
+    console.log(this.authService.token + "hello");
+    this.grupo = new Grupo();
     this.direccion = new Direccion();
     this.perteneces = new Perteneces();
-    this.nuevoPerteneces=new Perteneces();
+    this.nuevoPerteneces = new Perteneces();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   async onSubmit(form: NgForm) {
@@ -58,27 +61,27 @@ export class NavbarComponent implements OnInit {
     await this.grupoService.createGrupo(this.grupo);
     await this.sleep(1000);
     this.grupoService.getGrupoCodigo(this.grupo.codigo.toString()).subscribe(res => {
-      this.grupoId=res;
+      this.grupoId = res;
     }, err => console.log(err));
     await this.sleep(1000);
-    this.perteneces.grupoId=this.grupoId;
-    console.log(this.perteneces.grupoId+" grupo Id");
-    this.perteneces.usuarioId=this.usuarioService.usuario.id;
-    console.log(this.perteneces.usuarioId+" usuario Id");
+    this.perteneces.grupoId = this.grupoId;
+    console.log(this.perteneces.grupoId + " grupo Id");
+    this.perteneces.usuarioId = this.usuarioService.usuario.id;
+    console.log(this.perteneces.usuarioId + " usuario Id");
     this.pertenecesService.createPerteneces(this.perteneces);
     await this.sleep(1000);
   }
 
-  async onSubmit2(form: NgForm){
-    this.addGrupoCodigo=form.value.nombre;
+  async onSubmit2(form: NgForm) {
+    this.addGrupoCodigo = form.value.nombre;
     this.grupoService.getGrupoCodigo(this.addGrupoCodigo).subscribe(res => {
-      this.addGrupoCodigo=res;
+      this.addGrupoCodigo = res;
     }, err => console.log(err));
-    console.log(this.addGrupoCodigo+" id del grupo a unirse")
+    console.log(this.addGrupoCodigo + " id del grupo a unirse")
     await this.sleep(1000);
-    this.nuevoPerteneces.usuarioId=this.usuarioService.usuario.id;
-    this.nuevoPerteneces.grupoId=this.addGrupoCodigo;
-    console.log(this.nuevoPerteneces.usuarioId+" id del usuario a unirse")
+    this.nuevoPerteneces.usuarioId = this.usuarioService.usuario.id;
+    this.nuevoPerteneces.grupoId = this.addGrupoCodigo;
+    console.log(this.nuevoPerteneces.usuarioId + " id del usuario a unirse")
     this.pertenecesService.createPerteneces(this.nuevoPerteneces);
     await this.sleep(1000);
   }
@@ -88,6 +91,7 @@ export class NavbarComponent implements OnInit {
   }
 
   async sleep(ms) {
+    ms=ms/2;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

@@ -65,6 +65,7 @@ export class InicioComponent implements OnInit {
 
 
   async sleep(ms) {
+    ms=ms/2;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

@@ -30,7 +30,7 @@
                 <td>
                   <button href="#" class="btn btn-warning espacio" data-toggle="modal" data-target="#modal8"
                     (click)="activarModal(solicitud)">Informacion</button>
-                  <button href="#" class="btn btn-danger espacio">Eliminar</button>
+                  <button href="#" class="btn btn-danger espacio" (click)=eliminar(solicitud)>Eliminar</button>
                 </td>
               </tr>
             </tbody>
@@ -59,30 +59,58 @@
       <div class="modal-body">
         <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-row row">
-            <div class="col-12">
-              <label class="modalish"><b>Direccion del Usuario</b></label>
+            <div>
+              <div class="col-12">
+                <label class="modalish"><b>Informacion del Usuario</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Nombre: {{this.usuarioTemporal.nombre}}</p>
+                <p>Telefono: {{this.usuarioTemporal.telefono}}</p>
+                <p>Correo: {{this.usuarioTemporal.correo}}</p>
+                <p>Cedula: {{this.usuarioTemporal.cedula}}</p>
+                <p>Edad: {{this.usuarioTemporal.edad}}</p>
+              </div>
             </div>
-            <br>
-            <div class="col-12">
-              <p>Municipio: </p>
-              <p>Urbanizacion:</p>
-              <p>Descripcion: </p>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='invitacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Direccion del Usuario</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Municipio: {{this.direccionService.direccion.municipio}}</p>
+                <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>
+                <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>
+              </div>
             </div>
-            <div class="col-12">
-              <label class="modalish"><b>Informacion del Vehiculo</b></label>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='aceptacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Informacion del Vehiculo</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Placa: {{this.carroService.carro.placa}}</p>
+                <p>Marca: {{this.carroService.carro.marca}}</p>
+                <p>Modelo: {{this.carroService.carro.modelo}}</p>
+                <p>Año: {{this.carroService.carro.ano}}</p>
+                <p>Color: {{this.carroService.carro.color}}</p>
+              </div>
             </div>
-            <br>
-            <div class="col-12">
-              <p>Placa: </p>
-              <p>Marca:</p>
-              <p>Modelo: </p>
-              <p>Año: </p>
-              <p>Color: </p>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='invitacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Descripcion de la invitacion</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>{{this.invitacionService.invitacion.descripcion}}</p>
+              </div>
             </div>
             <br>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-lg btn-block espacio"
-                data-dismiss="modal">Regresar</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block espacio" data-dismiss="modal"
+                (click)="aceptar()">Aceptar</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block espacio" data-dismiss="modal"
+                (click)="eliminar(this.solicitudTemporal)">Eliminar</button>
             </div>
           </div>
         </form>

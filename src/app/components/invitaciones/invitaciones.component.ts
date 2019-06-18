@@ -6,6 +6,8 @@ import { CarroService } from 'src/app/shared/services/carro/carro.service';
 import { Solicitud } from 'src/app/shared/models/Solicitud';
 import { Usuario } from 'src/app/shared/models/Usuario';
 import { Grupo } from 'src/app/shared/models/Grupos';
+import { DireccionService } from 'src/app/shared/services/direccion/direccion.service';
+import { Invitacion } from 'src/app/shared/models/Invitaciones';
 
 @Component({
   selector: 'app-invitaciones',
@@ -19,14 +21,16 @@ export class InvitacionesComponent implements OnInit {
   solicitudTemporal: any;
   usuarioTemporal: any;
   grupoTemporal: any;
+  invitacionTemporal: any;
 
 
-  constructor(private invitacionService: InvitacionService, private usuarioService: UsuarioService, private grupoService: GrupoService, private carroService: CarroService) { }
+  constructor(private invitacionService: InvitacionService, private usuarioService: UsuarioService, private grupoService: GrupoService, private carroService: CarroService, private direccionService: DireccionService) { }
 
   async ngOnInit() {
     this.solicitudTemporal = new Solicitud();
     this.usuarioTemporal=new Usuario();
     this.grupoTemporal=new Grupo();
+    this.invitacionTemporal=new Invitacion();
     this.invitacionService.getInvitacionesUsuario(this.usuarioService.usuario.id).subscribe(res => {
       this.invitaciones = res;
       
@@ -53,8 +57,34 @@ export class InvitacionesComponent implements OnInit {
   }
 
   async activarModal(solicitud: Solicitud){
-    
+    this.solicitudTemporal=solicitud;
+    this.invitacionService.getInvitacion(solicitud.invitacionId.toString());
+    await this.sleep(500);
+    this.usuarioService.getUsuarioDetalle(this.invitacionService.invitacion.usuarioId).subscribe(res => {
+      this.usuarioTemporal = res;
+      
+    }, err => console.log(err));
+    await this.sleep(500);
+    console.log(this.usuarioTemporal);
+    this.carroService.getCarro(this.usuarioTemporal.carroId);
+    this.direccionService.getDireccion(this.usuarioTemporal.direccionId);
+    await this.sleep(500);
 
+  }
+
+  async aceptar(){
+    this.invitacionTemporal.usuarioId=this.invitacionService.invitacion.usuarioExId;
+    this.invitacionTemporal.usuarioExId=this.invitacionService.invitacion.usuarioId;
+    this.invitacionTemporal.grupoId=this.invitacionService.invitacion.grupoId;
+    this.invitacionTemporal.tipo="aceptacion";
+    this.invitacionService.createInvitacion(this.invitacionTemporal);
+    await this.sleep(500);
+    this.eliminar(this.solicitudTemporal);
+  }
+
+  async eliminar(solicitud: Solicitud){
+    this.invitacionService.deleteInvitacion(solicitud.invitacionId.toString());
+    await this.sleep(500);
   }
 
   async sleep(ms) {

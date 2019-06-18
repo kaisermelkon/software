@@ -40,7 +40,7 @@ export class InvitacionService {
   }
 
   deleteInvitacion(id: string){
-    return this.http.delete(`${this.URL_API}/${id}`);
+    return this.http.delete(`${this.URL_API}/${id}`).subscribe(res => console.log(res), err => console.log(err));;
   }
 
   getInvitacionesUsuario(usuarioExId: string) {
