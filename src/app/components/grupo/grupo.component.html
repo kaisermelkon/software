@@ -43,7 +43,7 @@
 
 </div>
 
-<!-- Modal Editar Datos Personales -->
+<!-- Modal Mostrar Datos Personales -->
 <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -56,30 +56,25 @@
       <div class="modal-body">
         <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-row row">
-
             <div class="col-12">
             <label class="modalish"><b>Direccion del Usuario</b></label>
             </div>
             <br>
             <div class="col-12">
-            <!-- <blockquote class="modalish"> -->
               <p>Municipio: {{this.usuarioModal.municipio}}</p>
               <p>Urbanizacion: {{this.usuarioModal.urbanizacion}}</p>
               <p>Descripcion: {{this.usuarioModal.descripcion}}</p>
-            <!-- </blockquote> -->
             </div>
             <div class="col-12">
             <label class="modalish"><b>Informacion del Vehiculo</b></label>
             </div>
             <br>
             <div class="col-12">
-            <!-- <blockquote class="modalish"> -->
               <p>Placa: {{this.carroService.carro.placa}}</p>
               <p>Marca: {{this.carroService.carro.marca}}</p>
               <p>Modelo: {{this.carroService.carro.modelo}}</p>
               <p>Año: {{this.carroService.carro.ano}}</p>
               <p>Color: {{this.carroService.carro.color}}</p>
-            <!-- </blockquote> -->
             </div>
             <br>
             <div class="modal-footer">
