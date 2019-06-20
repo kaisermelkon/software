@@ -4,6 +4,19 @@
   background-position: center;
 }
 
+.espacio{
+  padding: 10px;
+  margin: 2px 2px;
+  display: inline-block;
+}
+
+.sangria{
+  margin:auto 40px;
+}
+
+.sangriafuerte{
+  margin:auto 100px;
+}
 
 .unica{
 width: 70%;

@@ -3,6 +3,14 @@ button{
   margin: 2px;
 }
 
+.sangria{
+  margin:auto 40px;
+}
+
+.sangriafuerte{
+  margin:auto 80px;
+}
+
 nav {
   /*Es mucho mas facil posicionr las cosas dentro de un display flex para responsive*/
   display: flex;

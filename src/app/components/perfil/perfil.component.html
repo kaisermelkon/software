@@ -78,10 +78,11 @@
             <input type="text" class="form-control" id="inputUrbanizacion" placeholder="Urbanizacion" name="urbanizacion" #urbanizacion="ngModel" ngModel>
               <label for="inputDescripcion">Descripcion</label>
               <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" ngModel> 
-              
             <br>
+            <div class="modal-footer sangriafuerte">
             <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
             <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+          </div>
           </div>
         </form>
 
@@ -119,8 +120,10 @@
                   <input size="35" maxlength="70" class="form-control" placeholder="Ano" type="text" name="ano" #ano="ngModel" [(ngModel)]="this.carro.ano"
                   required>
                   <br>
+                  <div class="modal-footer sangriafuerte">
                   <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
                   <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+                </div>
                 </div>
               </form>
       
@@ -154,8 +157,10 @@
               <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion" name="descripcion" #descripcion="ngModel" [(ngModel)]="this.direccion.descripcion"> 
               
             <br>
+            <div class="modal-footer sangriafuerte">
             <button type="submit" class="btn btn-primary espacio">Guardar Cambios</button>
             <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+          </div>
           </div>
         </form>
 

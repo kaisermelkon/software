@@ -7,7 +7,6 @@
           <div class="card-tittle">
             <h2>Nombre del Grupo</h2>
           </div>
-          <div class="card-text">Direccion</div>
           <table class="table">
             <thead>
               <tr>
@@ -48,7 +47,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
+        <h5 class="modal-title text-center" id="exampleModalLabel">Datos del Usuario</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -60,16 +59,16 @@
               <label class="modalish"><b>Direccion del Usuario</b></label>
             </div>
             <br>
-            <div class="col-12">
+            <div class="col-12 sangria">
               <p>Municipio: {{this.direccionService.direccion.municipio}}</p>
               <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>
               <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>
             </div>
-            <div class="col-12">
+            <div class="col-12 ">
               <label class="modalish"><b>Informacion del Vehiculo</b></label>
             </div>
             <br>
-            <div class="col-12">
+            <div class="col-12 sangria">
               <p>Placa: {{this.carroService.carro.placa}}</p>
               <p>Marca: {{this.carroService.carro.marca}}</p>
               <p>Modelo: {{this.carroService.carro.modelo}}</p>
@@ -78,12 +77,16 @@
             </div>
             <div>
               <p><b>Ingrese una descripcion</b></p>
-              <input ngModel size="35" maxlength="255" placeholder="" name="descripcion" type="text"
+              <div>
+                <div>
+              <input ngModel size="90" maxlength="255" class="form-control"  placeholder="Descripcion" name="descripcion" type="text"
                 #descripcion="ngModel">
+              </div>
+              </div>
             </div>
             <br>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary espacio modalish">Pedir Cola</button>
+            <div class="modal-footer sangriafuerte">
+              <button type="submit" class="btn btn-primary espacio modalish" data-dismiss="modal">Pedir Cola</button>
               <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
             </div>
           </div>

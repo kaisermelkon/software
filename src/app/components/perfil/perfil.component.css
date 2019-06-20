@@ -3,6 +3,14 @@
   margin: 0px 10px;
 }
 
+.sangria{
+  margin:auto 40px;
+}
+
+.sangriafuerte{
+  margin:auto 80px;
+}
+
 img{
   padding: 10px;
   display: inline-block;

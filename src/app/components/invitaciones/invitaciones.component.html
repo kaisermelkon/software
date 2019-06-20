@@ -28,8 +28,8 @@
                 <td>{{solicitud.grupoNombre}}</td>
                 <td>{{solicitud.invitacionTipo}}</td>
                 <td>
-                  <button href="#" class="btn btn-warning espacio" data-toggle="modal" data-target="#modal8"
-                    (click)="activarModal(solicitud)">Informacion</button>
+                  <button href="#" class="btn btn-success espacio" data-toggle="modal" data-target="#modal8"
+                    (click)="activarModal(solicitud)">Ver Solicitud</button>
                   <button href="#" class="btn btn-danger espacio" (click)=eliminar(solicitud)>Eliminar</button>
                 </td>
               </tr>
@@ -106,10 +106,10 @@
               </div>
             </div>
             <br>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary btn-lg btn-block espacio" data-dismiss="modal"
+            <div class="modal-footer sangriafuerte">
+              <button type="button" class="btn btn-primary espacio" 
                 (click)="aceptar()">Aceptar</button>
-              <button type="button" class="btn btn-secondary btn-lg btn-block espacio" data-dismiss="modal"
+              <button type="button" class="btn btn-secondary espacio"
                 (click)="eliminar(this.solicitudTemporal)">Eliminar</button>
             </div>
           </div>

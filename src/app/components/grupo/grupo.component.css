@@ -4,12 +4,27 @@
     background-position: center;
   }
 
+  h5{
+    text-align: center;
+  }
+
+  .sangria{
+    margin:auto 40px;
+  }
+
+  .sangriafuerte{
+    margin:auto 100px;
+  }
+
   .unica{
 width: 70%;
 margin: auto;
   }
 
-
+button{
+  margin: 8px auto;
+  justify-content: center;
+}
 
   .container {
     background: #333333;
@@ -71,7 +86,7 @@ margin: auto;
 
   .espacio{
     padding: 10px;
-    margin: 0px 10px;
+    margin: 0px 2px;
   }
   
   img{
