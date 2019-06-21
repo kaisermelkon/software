@@ -53,4 +53,8 @@ export class PertenecesService {
     return this.http.get(`${this.URL_API}/perteneces/${grupoId}/${usuarioId}`);
   }
 
+  getPerUsuariosGruposBoolean(grupoId: string, usuarioId: string){
+    return this.http.get(`${this.URL_API}/perteneces/boolean/${grupoId}/${usuarioId}`);
+  }
+
 }

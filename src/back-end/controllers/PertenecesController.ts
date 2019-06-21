@@ -78,6 +78,17 @@ class PertenecesController{
         }
         res.status(404).json({text: "perteneces no encontrado"});
     }
+
+    public async getPerUsuariosGruposBoolean (req: Request, res: Response): Promise<any> {
+        const {grupoId}=req.params;
+        const {usuarioId}=req.params;
+        console.log(grupoId+"hiodhioqhdhwhda");
+        const perteneces=await pool.query("SELECT * FROM perteneces WHERE grupoId = ? AND usuarioId = ?", [grupoId, usuarioId]);
+        if(perteneces.length>0){
+            return res.json(false);
+        }
+        res.status(404).json({text: "perteneces no encontrado"});
+    }
 }
 
 const pertenecesController=new PertenecesController();

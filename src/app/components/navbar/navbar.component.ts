@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
   nuevoPerteneces: any;
   solicitudesPendientes: boolean = false;
   invitaciones: any = []
+  pertenecesExistente: any=true;
 
 
   constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private invitacionService: InvitacionService) {
@@ -79,11 +80,21 @@ export class NavbarComponent implements OnInit {
     }, err => console.log(err));
     console.log(this.addGrupoCodigo + " id del grupo a unirse")
     await this.sleep(1000);
-    this.nuevoPerteneces.usuarioId = this.usuarioService.usuario.id;
-    this.nuevoPerteneces.grupoId = this.addGrupoCodigo;
-    console.log(this.nuevoPerteneces.usuarioId + " id del usuario a unirse")
-    this.pertenecesService.createPerteneces(this.nuevoPerteneces);
+    this.pertenecesService.getPerUsuariosGruposBoolean(this.addGrupoCodigo, this.usuarioService.usuario.id).subscribe(res => {
+      this.pertenecesExistente = res;
+    }, err => console.log(err));
     await this.sleep(1000);
+    console.log(this.pertenecesExistente);
+    if (this.pertenecesExistente) {
+      console.log("es cierto");
+      this.nuevoPerteneces.usuarioId = this.usuarioService.usuario.id;
+      this.nuevoPerteneces.grupoId = this.addGrupoCodigo;
+      console.log(this.nuevoPerteneces.usuarioId + " id del usuario a unirse")
+      this.pertenecesService.createPerteneces(this.nuevoPerteneces);
+      await this.sleep(1000);
+    }
+    this.pertenecesExistente=true;
+
   }
 
   Open() {
@@ -91,7 +102,7 @@ export class NavbarComponent implements OnInit {
   }
 
   async sleep(ms) {
-    ms=ms/2;
+    ms = ms / 2;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

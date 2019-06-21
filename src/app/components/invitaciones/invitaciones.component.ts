@@ -16,8 +16,8 @@ import { Invitacion } from 'src/app/shared/models/Invitaciones';
 })
 export class InvitacionesComponent implements OnInit {
 
-  solicitudes: any=[];
-  invitaciones: any=[];
+  solicitudes: any = [];
+  invitaciones: any = [];
   solicitudTemporal: any;
   usuarioTemporal: any;
   grupoTemporal: any;
@@ -28,41 +28,60 @@ export class InvitacionesComponent implements OnInit {
 
   async ngOnInit() {
     this.solicitudTemporal = new Solicitud();
-    this.usuarioTemporal=new Usuario();
-    this.grupoTemporal=new Grupo();
-    this.invitacionTemporal=new Invitacion();
+    this.usuarioTemporal = new Usuario();
+    this.grupoTemporal = new Grupo();
+    this.invitacionTemporal = new Invitacion();
     this.invitacionService.getInvitacionesUsuario(this.usuarioService.usuario.id).subscribe(res => {
       this.invitaciones = res;
-      
+
     }, err => console.log(err));
     await this.sleep(500);
     console.log(this.invitaciones);
-    for(let invitacion of this.invitaciones){
-      this.solicitudTemporal.invitacionTipo=invitacion.tipo;
-      this.solicitudTemporal.invitacionId=invitacion.id;
+    for (let invitacion of this.invitaciones) {
       this.usuarioService.getUsuarioDetalle(invitacion.usuarioId).subscribe(res => {
         this.usuarioTemporal = res;
-        
+
       }, err => console.log(err));
       await this.sleep(500);
-      this.solicitudTemporal.usuarioNombre=this.usuarioTemporal.nombre;
-      this.solicitudTemporal.usuarioTelefono=this.usuarioTemporal.telefono;
-      this.solicitudTemporal.usuarioCorreo=this.usuarioTemporal.correo;
       this.grupoService.getGrupoDetalle(invitacion.grupoId);
       await this.sleep(500);
-      this.solicitudTemporal.grupoNombre=this.grupoService.grupo.nombre;
+      this.solicitudes.push({
+        invitacionTipo: invitacion.tipo,
+        invitacionId: invitacion.id,
+        usuarioNombre: this.usuarioTemporal.nombre,
+        usuarioTelefono: this.usuarioTemporal.telefono,
+        usuarioCorreo: this.usuarioTemporal.correo,
+        grupoNombre: this.grupoService.grupo.nombre
+
+      });
+      /*this.solicitudTemporal.invitacionTipo = invitacion.tipo;
+      this.solicitudTemporal.invitacionId = invitacion.id;
+      this.usuarioService.getUsuarioDetalle(invitacion.usuarioId).subscribe(res => {
+        this.usuarioTemporal = res;
+
+      }, err => console.log(err));
+      await this.sleep(500);
+      this.solicitudTemporal.usuarioNombre = this.usuarioTemporal.nombre;
+      this.solicitudTemporal.usuarioTelefono = this.usuarioTemporal.telefono;
+      this.solicitudTemporal.usuarioCorreo = this.usuarioTemporal.correo;
+      this.grupoService.getGrupoDetalle(invitacion.grupoId);
+      await this.sleep(500);
+      this.solicitudTemporal.grupoNombre = this.grupoService.grupo.nombre;
+      console.log(this.solicitudTemporal);
       this.solicitudes.push(this.solicitudTemporal);
+      console.log(this.solicitudes)*/
     }
+    console.log(this.solicitudes)
 
   }
 
-  async activarModal(solicitud: Solicitud){
-    this.solicitudTemporal=solicitud;
+  async activarModal(solicitud: Solicitud) {
+    this.solicitudTemporal = solicitud;
     this.invitacionService.getInvitacion(solicitud.invitacionId.toString());
     await this.sleep(500);
     this.usuarioService.getUsuarioDetalle(this.invitacionService.invitacion.usuarioId).subscribe(res => {
       this.usuarioTemporal = res;
-      
+
     }, err => console.log(err));
     await this.sleep(500);
     console.log(this.usuarioTemporal);
@@ -72,17 +91,17 @@ export class InvitacionesComponent implements OnInit {
 
   }
 
-  async aceptar(){
-    this.invitacionTemporal.usuarioId=this.invitacionService.invitacion.usuarioExId;
-    this.invitacionTemporal.usuarioExId=this.invitacionService.invitacion.usuarioId;
-    this.invitacionTemporal.grupoId=this.invitacionService.invitacion.grupoId;
-    this.invitacionTemporal.tipo="aceptacion";
+  async aceptar() {
+    this.invitacionTemporal.usuarioId = this.invitacionService.invitacion.usuarioExId;
+    this.invitacionTemporal.usuarioExId = this.invitacionService.invitacion.usuarioId;
+    this.invitacionTemporal.grupoId = this.invitacionService.invitacion.grupoId;
+    this.invitacionTemporal.tipo = "aceptacion";
     this.invitacionService.createInvitacion(this.invitacionTemporal);
     await this.sleep(500);
     this.eliminar(this.solicitudTemporal);
   }
 
-  async eliminar(solicitud: Solicitud){
+  async eliminar(solicitud: Solicitud) {
     this.invitacionService.deleteInvitacion(solicitud.invitacionId.toString());
     await this.sleep(500);
   }
