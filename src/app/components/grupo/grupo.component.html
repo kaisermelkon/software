@@ -3,12 +3,11 @@
     <br>
     <div>
       <div class="card text-center unica">
-        <div class="card-block"> 
-                 <div class="card-tittle">
-          <h2>Nombre del Grupo</h2>
-        </div>
-        <div class="card-text">Direccion</div>
-        <table class="table">
+        <div class="card-block">
+          <div class="card-tittle">
+            <h2>{{this.grupoService.grupo.nombre}}</h2>
+          </div>
+          <table class="table">
             <thead>
               <tr>
                 <th scope="col">Nombre</th>
@@ -18,41 +17,84 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Daniel Velasquez</th>
-                <td>04241400496</td>
-                <td>daniel@gmail.com</td>
-                <td><a href="#" class="btn btn-success">Pedir Cola</a></td>
+              <tr *ngFor="let usuario of usuarios">
+                <th scope="row">{{usuario.nombre}}</th>
+                <td>{{usuario.telefono}}</td>
+                <td>{{usuario.correo}}</td>
+                <td>
+                  <button href="#" class="btn btn-success espacio" [disabled]="conCarro(usuario)" data-toggle="modal"
+                    data-target="#modal7" (click)="activarModal(usuario)">Pedir Cola</button>
+                  <button href="#" class="btn btn-danger espacio" [disabled]="!eliminarEnabled(usuario)"
+                    (click)="eliminar(usuario)">Eliminar</button>
+                </td>
               </tr>
-              <tr>
-                <th scope="row">Kaiser Melkon</th>
-                <td>04167189021</td>
-                <td>kaiser@gmail.com</td>
-                <td><a href="#" class="btn btn-success">Pedir Cola</a></td>
-              </tr>
-              <tr>
-                <th scope="row">Juan Grullon</th>
-                <td>04126178910</td>
-                <td>juanete@gmail.com</td>
-                <td><a href="#" class="btn btn-success">Pedir Cola</a></td>
-              </tr>
-              <tr>
-                  <th scope="row">Veronica Lugli</th>
-                  <td>04142819012</td>
-                  <td>vero@gmail.com</td>
-                  <td><a href="#" class="btn btn-success">Pedir Cola</a></td>
-                </tr>
+
             </tbody>
           </table>
-        <a style="margin-top: 10px;" href="/inicio" class="btn btn-secondary">Regresar</a>
+
         </div>
-    </div>
+      </div>
     </div>
 
   </div>
 
   <script type="js/bootstrap.min.js"></script>
 
+</div>
+
+<!-- Modal Mostrar Datos Personales -->
+<div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="exampleModalLabel">Datos del Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row row">
+            <div class="col-12">
+              <label class="modalish"><b>Direccion del Usuario</b></label>
+            </div>
+            <br>
+            <div class="col-12 sangria">
+              <p>Municipio: {{this.direccionService.direccion.municipio}}</p>
+              <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>
+              <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>
+            </div>
+            <div class="col-12 ">
+              <label class="modalish"><b>Informacion del Vehiculo</b></label>
+            </div>
+            <br>
+            <div class="col-12 sangria">
+              <p>Placa: {{this.carroService.carro.placa}}</p>
+              <p>Marca: {{this.carroService.carro.marca}}</p>
+              <p>Modelo: {{this.carroService.carro.modelo}}</p>
+              <p>Año: {{this.carroService.carro.ano}}</p>
+              <p>Color: {{this.carroService.carro.color}}</p>
+            </div>
+            <div>
+              <p><b>Ingrese una descripcion</b></p>
+              <div>
+                <div>
+              <input ngModel size="90" maxlength="255" class="form-control"  placeholder="Descripcion" name="descripcion" type="text"
+                #descripcion="ngModel">
+              </div>
+              </div>
+            </div>
+            <br>
+            <div class="modal-footer sangriafuerte">
+              <button type="submit" class="btn btn-primary espacio modalish">Pedir Cola</button>
+              <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer>

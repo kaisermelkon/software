@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { GrupoComponent } from './components/grupo/grupo.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -20,9 +21,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthService } from './shared/services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { GrupoComponent } from './components/grupo/grupo.component';
+
 import { UsuarioService } from './shared/services/usuario/usuario.service';
 import { GrupoService } from './shared/services/grupo/grupo.service';
+import { DireccionService } from './shared/services/direccion/direccion.service';
+import { PertenecesService } from './shared/services/perteneces/perteneces.service';
+import { CarroService } from './shared/services/carro/carro.service';
+import { InvitacionesComponent } from './components/invitaciones/invitaciones.component';
+import { InvitacionService } from './shared/services/invitacion/invitacion.service';
 
 
 
@@ -34,7 +40,8 @@ import { GrupoService } from './shared/services/grupo/grupo.service';
     RegistroComponent,
     InicioComponent,
     PerfilComponent,
-    GrupoComponent
+    GrupoComponent,
+    InvitacionesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -46,7 +53,7 @@ import { GrupoService } from './shared/services/grupo/grupo.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService],
+  providers: [AuthService, AngularFireAuth, UsuarioService, GrupoService, DireccionService, PertenecesService, CarroService, InvitacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

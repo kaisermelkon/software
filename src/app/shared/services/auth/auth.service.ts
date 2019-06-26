@@ -28,10 +28,9 @@ export class AuthService {
     })
   }
 
-  signUpUser(usuario: Usuario, password: string){
-    firebase.auth().createUserWithEmailAndPassword(usuario.correo, password).then(
+  async signUpUser(usuario: Usuario, password: string){
+    await firebase.auth().createUserWithEmailAndPassword(usuario.correo, password).then(
       response => {
-        this.router.navigate(['inicio']);
         this.token=true;
         this.usuarioService.createUsuario(usuario);
       }
@@ -39,16 +38,23 @@ export class AuthService {
     .catch(
       error => console.log(error)
     );
+    
+    this.router.navigate(['./login']);
   }
 
   async signInUser(email: string, password: string) {
     try {
       await  this.afAuth.auth.signInWithEmailAndPassword(email, password);
-      this.usuarioService.getUsuario(email);
-      this.router.navigate(['./inicio']);
+      await this.usuarioService.getUsuario(email);
+      await this.sleep(2000);
+      this.temp();
   } catch (e) {
       alert("Error!"  +  e.message);
   }
+  }
+
+  async temp (){
+    this.router.navigate(['./inicio']);
   }
 
 
@@ -61,6 +67,11 @@ export class AuthService {
     await this.afAuth.auth.signOut();
     localStorage.removeItem('user');
     this.router.navigate(['./login']);
+  }
+
+  async sleep(ms) {
+    ms=ms/2;
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
 }

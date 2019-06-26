@@ -4,6 +4,10 @@ import cors from 'cors';
 import { Application} from 'express';
 import baseRoutes from './routes/UsuarioRoutes';
 import groupRoutes from './routes/groupRoutes';
+import direccionRoutes from './routes/direccionRoutes';
+import pertenecesRoutes from './routes/pertenecesRoutes';
+import carroRoutes from './routes/carroRoutes';
+import invitacionRoutes from './routes/invitacionRoutes';
 
 
 class Server {
@@ -25,8 +29,13 @@ class Server {
     }
 
     routes(): void{
-        this.app.use('api/usuarios', baseRoutes);
+        this.app.use('/api/usuarios', baseRoutes);
         this.app.use('/api/grupos', groupRoutes);
+        this.app.use('/api/direcciones', direccionRoutes);
+        this.app.use('/api/perteneces', pertenecesRoutes);
+        this.app.use('/api/carros', carroRoutes);
+        this.app.use('/api/invitaciones', invitacionRoutes);
+
         
     }
 

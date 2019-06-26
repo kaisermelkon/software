@@ -1,6 +1,32 @@
+.espacio{
+  padding: 10px;
+  margin: 0px 10px;
+}
+
+.sangria{
+  margin:auto 40px;
+}
+
+.sangriafuerte{
+  margin:auto 80px;
+}
+
+img{
+  padding: 10px;
+  display: inline-block;
+}
+
+.nombre {
+  color: white;
+  margin: 8px 100px 8px 2px;
+  font-size: 17px;
+  display: inline-block;
+}
+
 blockquote {
-    margin: auto;
+    margin: 40px;
     width: auto;
+    color: black;
   }
   
   h2 {
@@ -11,21 +37,12 @@ blockquote {
     text-transform: uppercase;
   }
   
-  p {
-    color: white;
-    width: 90%;
-    margin: 8px auto;
-    font-size: 17px;
-  }
-  
-  button {
-    background: darkgrey;
+  h3 {
+    text-align: left;
+    margin-bottom: 5px;
     color: black;
-    justify-content: center;
-    border-radius: 5px;
-    font-size: 17px;
-    margin: 8px auto;
-  
+    padding: 0px 20px;
+    text-transform: uppercase;
   }
   
   button:hover {
@@ -39,19 +56,21 @@ blockquote {
   }
   
   input {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
+    background-color: ghostwhite;
     display: block;
-    width: 90%;
-    margin: 8px auto;
     font-size: 15px;
+    margin: 10px 0px;
   }
   
   a {
-    color: aqua;
+    color: black;
+    background-color: darkgrey;
     font-size: 17px;
-    margin-bottom: 8px;
+    text-decoration: none;
+    margin-top: 8px;
+    border:1px solid black;
+    border-radius: 3px;
+    padding: 8px;
   }
   
   .centrado {
@@ -62,9 +81,9 @@ blockquote {
     vertical-align: middle;
   }
   
-  form {
+  .formulario {
     align-items: center;
-    background-color: #5d4954;
+    background-color:darkgray;
     font-family: 'Poppins', sans-serif;
     border: 1px solid black;
     max-width: 500px;

@@ -7,8 +7,7 @@ import {Usuario} from '../../shared/models/Usuario';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css'],
-  providers: [AuthService]
+  styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
 
@@ -23,7 +22,7 @@ export class RegistroComponent implements OnInit {
 
 
 
-  onSubmit(form: NgForm){
+  async onSubmit(form: NgForm){
     const password1=form.value.password;
     const password2=form.value.password2;
     this.usuario.correo=form.value.email;
@@ -35,7 +34,7 @@ export class RegistroComponent implements OnInit {
     console.log("hello");
     if(password1 === password2){
       console.log("hello");
-      this.authService.signUpUser(this.usuario, password1);
+      await this.authService.signUpUser(this.usuario, password1);
     }
   }
 

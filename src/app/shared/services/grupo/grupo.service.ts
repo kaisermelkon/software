@@ -11,6 +11,7 @@ export class GrupoService {
 
 
   URL_API = 'http://localhost:3000/api/grupos';
+  grupo: any;
 
 
   constructor(private http: HttpClient) { 
@@ -22,7 +23,7 @@ export class GrupoService {
   }
 
   getGrupo(id: string){
-    return this.http.get(`${this.URL_API}/${id}`).subscribe(res => console.log(res), err => console.log(err));
+    return this.http.get(`${this.URL_API}/${id}`);
   }
 
   createGrupo(grupo: Grupo) {
@@ -39,5 +40,19 @@ export class GrupoService {
 
   getGruposCodigo(codigo: string){
     return this.http.get(`${this.URL_API}/${codigo}`).subscribe(res => console.log(res), err => console.log(err));
+  }
+
+  getGruposAdministrador(id: string){
+    return this.http.get(`${this.URL_API}/administrador/${id}`);
+  }
+
+  getGrupoCodigo(codigo: string){
+    return this.http.get(`${this.URL_API}/perteneces/${codigo}`);
+  }
+
+  getGrupoDetalle(id: string){
+    return this.http.get(`${this.URL_API}/detalle/${id}`).subscribe(res => {
+      this.grupo = res;
+    }, err => console.log(err));
   }
 }

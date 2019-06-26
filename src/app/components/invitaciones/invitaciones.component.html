@@ -1,0 +1,138 @@
+<div class="centrado">
+  <br>
+  <div class="container text-center">
+    <br>
+    <div>
+      <div class="card text-center unica">
+        <div class="card-block">
+          <div class="card-tittle">
+
+            <h2>Solicitudes de Cola</h2>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Grupo</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Accion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let solicitud of solicitudes">
+                <th scope="row">{{solicitud.usuarioNombre}}</th>
+                <td>{{solicitud.usuarioTelefono}}</td>
+                <td>{{solicitud.usuarioCorreo}}</td>
+                <td>{{solicitud.grupoNombre}}</td>
+                <td>{{solicitud.invitacionTipo}}</td>
+                <td>
+                  <button href="#" class="btn btn-success espacio" data-toggle="modal" data-target="#modal8"
+                    (click)="activarModal(solicitud)">Ver Solicitud</button>
+                  <button href="#" class="btn btn-danger espacio" (click)=eliminar(solicitud)>Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="js/bootstrap.min.js"></script>
+
+</div>
+
+<!-- Modal Mostrar Datos Personales -->
+<div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-row row">
+            <div>
+              <div class="col-12">
+                <label class="modalish"><b>Informacion del Usuario</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Nombre: {{this.usuarioTemporal.nombre}}</p>
+                <p>Telefono: {{this.usuarioTemporal.telefono}}</p>
+                <p>Correo: {{this.usuarioTemporal.correo}}</p>
+                <p>Cedula: {{this.usuarioTemporal.cedula}}</p>
+                <p>Edad: {{this.usuarioTemporal.edad}}</p>
+              </div>
+            </div>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='invitacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Direccion del Usuario</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Municipio: {{this.direccionService.direccion.municipio}}</p>
+                <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>
+                <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>
+              </div>
+            </div>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='aceptacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Informacion del Vehiculo</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>Placa: {{this.carroService.carro.placa}}</p>
+                <p>Marca: {{this.carroService.carro.marca}}</p>
+                <p>Modelo: {{this.carroService.carro.modelo}}</p>
+                <p>Año: {{this.carroService.carro.ano}}</p>
+                <p>Color: {{this.carroService.carro.color}}</p>
+              </div>
+            </div>
+            <div *ngIf="this.solicitudTemporal.invitacionTipo==='invitacion'">
+              <div class="col-12">
+                <label class="modalish"><b>Descripcion de la invitacion</b></label>
+              </div>
+              <br>
+              <div class="col-12">
+                <p>{{this.invitacionService.invitacion.descripcion}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="modal-footer sangriafuerte">
+              <button type="button" class="btn btn-primary espacio" 
+                (click)="aceptar()">Aceptar</button>
+              <button type="button" class="btn btn-secondary espacio"
+                (click)="eliminar(this.solicitudTemporal)">Eliminar</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="row footer">
+    <div class="col-4 p-5">
+      <br>
+      <br>
+      <h3 class="text-light">MetroUber</h3>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</footer>

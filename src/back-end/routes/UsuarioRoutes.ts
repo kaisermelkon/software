@@ -16,6 +16,7 @@ class baseRoutes{
         this.router.post('/', usuariosController.create);
         this.router.delete('/:id', usuariosController.delete);
         this.router.put('/:id', usuariosController.update);
+        this.router.get('/detalle/:id', usuariosController.getUsuarioDetalle);
     }
 
 }

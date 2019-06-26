@@ -4,6 +4,25 @@
   background-position: center;
 }
 
+.espacio{
+  padding: 10px;
+  margin: 2px 2px;
+  display: inline-block;
+}
+
+.sangria{
+  margin:auto 40px;
+}
+
+.sangriafuerte{
+  margin:auto 100px;
+}
+
+.unica{
+width: 70%;
+margin: auto;
+}
+
 .container {
 
   background: #333333;
@@ -19,10 +38,10 @@
 
 .container h2 {
   text-align: center;
-  color: #fff;
+  color:black;
   font-weight: normal;
   font-family: 'Poppins', sans-serif;
-  margin: 30px 0px;
+  margin: 5px 0px;
 }
 
 .list-group {
@@ -31,10 +50,8 @@
 }
 
 a {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  margin: auto;
+  display: inline-block;
+  margin: 1px;
 }
 
 footer {
@@ -51,8 +68,12 @@ footer {
   margin: 30px 0px;
 }
 
-.conaltura{
-  height: 141px;
-  margin: 10px 0px;
-  position: relative;
+.fondo{
+  background: white;
+  text-align: center;
+  color:black;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif;
+  margin: 5px 0px;
+
 }

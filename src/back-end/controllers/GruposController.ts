@@ -38,13 +38,36 @@ class GruposController{
         const {codigo}=req.params;
         const grupos=await pool.query("SELECT * FROM grupos WHERE codigo = ?", [codigo]);
         if(grupos.length>0){
-            res.json(grupos[0]);
+            res.send(true);
             console.log(true);
             return true;
         }
-        res.status(404).json({text: "Group not found"});
-        console.log(false);
+        res.send(false);
         return false;
+    }
+
+    public async getGruposAdministrador(req: Request, res: Response){
+        const {id}=req.params;
+        const grupos=await pool.query("SELECT * FROM grupos WHERE administradorId = ?", [id]);
+        res.json(grupos);
+    }
+
+    public async getGrupoCodigo(req: Request, res: Response){
+        const {codigo}=req.params;
+        const grupo=await pool.query("SELECT * FROM grupos WHERE codigo = ?", [codigo]);
+        if(grupo.length>0){
+            return res.json(grupo[0].id);
+        }
+        res.status(404).json({text: "grupo no encontrado"});
+    }
+
+    public async getGrupoDetalle (req: Request, res: Response): Promise<any> {
+        const {id}=req.params;
+        const grupos=await pool.query("SELECT * FROM grupos WHERE id = ?", [id]);
+        if(grupos.length>0){
+            return res.json(grupos[0]);
+        }
+        res.status(404).json({text: "Group not found"});
     }
 }
 

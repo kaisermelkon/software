@@ -11,7 +11,7 @@ class usuarioController{
     public async getOne (req: Request, res: Response): Promise<any> {
         const {correo}=req.params;
         console.log(correo);
-        const usuarios=await pool.query("SELECT * FROM usuarios WHERE correo = ?",  [correo]);
+        const usuarios= await pool.query("SELECT * FROM usuarios WHERE correo = ?",  [correo]);
         if(usuarios.length>0){
             return res.json(usuarios[0]);
         }
@@ -31,9 +31,23 @@ class usuarioController{
 
     public async update (req: Request, res:Response): Promise<void> {
         const {id}=req.params;
+        /*const {nombre}=req.params;
+        const {edad}=req.params;
+        const {cedula}=req.params;
+        const {telefono}=req.params;*/
         await pool.query('UPDATE usuarios SET ? WHERE id = ?', [req.body, id]);
-        res.json({text: "Usuario actualizado"});
+        res.json({message: "Usuario actualizado"});
     } 
+
+    public async getUsuarioDetalle (req: Request, res: Response): Promise<any> {
+        const {id}=req.params;
+        console.log(id);
+        const usuarios= await pool.query("SELECT * FROM usuarios WHERE id = ?",  [id]);
+        if(usuarios.length>0){
+            return res.json(usuarios[0]);
+        }
+        res.status(404).json({text: "Usuario no encontrado"});
+    }
 }
 
 const usuariosController=new usuarioController();

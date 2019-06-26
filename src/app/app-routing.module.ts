@@ -6,12 +6,14 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { AuthGuardService } from './shared/services/authGuard/auth-guard.service';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { GrupoComponent } from './components/grupo/grupo.component';
+import { InvitacionesComponent } from './components/invitaciones/invitaciones.component';
 
 const routes: Routes = [
   {path: 'registrarse', component: RegistroComponent},
   {path: 'grupo', component: GrupoComponent},
   {path: 'inicio', component: InicioComponent},
   {path: 'perfil', component: PerfilComponent},
+  {path: 'invitaciones', component: InvitacionesComponent},
   {path: '**', component: LoginComponent},
 ];
 
