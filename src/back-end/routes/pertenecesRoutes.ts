@@ -1,14 +1,27 @@
 import { Router } from 'express';
 import pertenecesController  from './../controllers/PertenecesController';
 
+/**
+   * Las rutas del pertences
+ */
 class PertenecesRoutes{
     
+    /**
+   * variable router del tipo Router
+   * para redirigir al controlador
+ */
     public router: Router = Router();
 
+    /**
+   * Corre el metodo config
+ */
     constructor(){
         this.config();
     }
 
+     /**
+   * Corre el controlador con sus respectivas rutas
+ */
     config(): void{
         this.router.get('/', pertenecesController.get);
         this.router.get('/:id', pertenecesController.getOne);
@@ -23,5 +36,8 @@ class PertenecesRoutes{
 
 }
 
+/**
+   * Exporta las rutas
+ */
 const pertenecesRoute= new PertenecesRoutes();
 export default pertenecesRoute.router;

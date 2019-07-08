@@ -7,20 +7,48 @@ import { Carro } from 'src/app/shared/models/Carro';
 import { DireccionService } from 'src/app/shared/services/direccion/direccion.service';
 import { Direccion} from 'src/app/shared/models/Direccion';
 
+
+/**
+ * Perfil Component
+ */
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  /**
+  *El usuario a observar
+ */
   usuario: Usuario;
+  /**
+  *El carro a observar
+ */
   carro: Carro;
+  /**
+  *@ignore
+ */
   carroId: any;
+  /**
+  *@ignore
+ */
   direccionId: any;
+  /**
+  *La direccion a observar
+ */
   direccion: Direccion;
 
+/**
+ * Constructor
+  * @param {UsuarioService} usuarioService El servicio para actualizar al usuario
+  * @param {CarroService} carroService El servicio para actualizar al carro
+  * @param {DireccionService} direccionService El servicio para actualizar la direccion
+ */
   constructor(private usuarioService: UsuarioService, private carroService: CarroService, private direccionService: DireccionService) { }
 
+  /**
+ * Obtiene la data del usuario, carro y direccion para mostrar en pantalla
+ */
   async ngOnInit() {
     this.usuario = new Usuario();
     this.carro = new Carro();
@@ -39,6 +67,10 @@ export class PerfilComponent implements OnInit {
     }
   }
 
+  /**
+  * Se actualiza el usuario
+ * @param {NgForm} form  La data para actualizar el usuario
+ */
   async onSubmit(form: NgForm) {
     this.usuarioService.updateUsuario(this.usuario, this.usuarioService.usuario.id);
     await this.sleep(1000);
@@ -47,6 +79,10 @@ export class PerfilComponent implements OnInit {
     this.usuario = this.usuarioService.usuario;
   }
 
+    /**
+   * Se actualiza la informacion del vehiculo
+ * @param {NgForm} form  La data para actualizar el carro
+ */
   async onSubmit2(form: NgForm) {
     if (this.carro.placa !== null) {
       if (this.usuario.carroId === null) {
@@ -72,6 +108,10 @@ export class PerfilComponent implements OnInit {
 
   }
 
+  /**
+   * Se actualiza la informacion de la direccion
+ * @param {NgForm} form  La data para actualizar la direccion
+ */
   async onSubmit3(form: NgForm){
     if(this.direccion.municipio !== null){
       if(this.usuario.direccionId === null){
@@ -96,8 +136,11 @@ export class PerfilComponent implements OnInit {
     }
   }
 
+  /**
+   * @ignore
+ */
   async sleep(ms) {
-    ms=ms/2;
+    ms=ms;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

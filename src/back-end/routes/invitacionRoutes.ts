@@ -1,14 +1,27 @@
 import { Router } from 'express';
 import invitacionController  from './../controllers/InvitacionController';
 
+/**
+   * Las rutas de las invitaciones
+ */
 class InvitacionRoutes{
     
+    /**
+   * variable router del tipo Router
+   * para redirigir al controlador
+ */
     public router: Router = Router();
 
+    /**
+   * Corre el metodo config
+ */
     constructor(){
         this.config();
     }
 
+     /**
+   * Corre el controlador con sus respectivas rutas
+ */
     config(): void{
         this.router.get('/', invitacionController.get);
         this.router.get('/:id', invitacionController.getOne);
@@ -20,5 +33,8 @@ class InvitacionRoutes{
 
 }
 
+/**
+   * Exporta las rutas
+ */
 const invitacionRoute= new InvitacionRoutes();
 export default invitacionRoute.router;

@@ -10,6 +10,10 @@ import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces
 import { Perteneces } from 'src/app/shared/models/Perteneces';
 import { InvitacionService } from 'src/app/shared/services/invitacion/invitacion.service';
 
+
+/**
+   * Navbar Component
+ */
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -17,19 +21,60 @@ import { InvitacionService } from 'src/app/shared/services/invitacion/invitacion
 })
 export class NavbarComponent implements OnInit {
 
+  /**
+   * @ignore
+ */
   private isOpen = false;
+  /**
+   * El Grupo que se va a crear o unir
+ */
   grupo: Grupo;
+  /**
+   * La direccion del grupo a crearse
+ */
   direccion: Direccion;
+  /**
+   * @ignore
+ */
   direccionId: any;
+  /**
+   * @ignore
+ */
   perteneces: Perteneces;
+  /**
+   * @ignore
+ */
   grupoId: any;
+  /**
+   * El codigo del grupo a unirse
+ */
   addGrupoCodigo: any;
+  /**
+   * @ignore
+ */
   nuevoPerteneces: any;
+  /**
+   * Si el usuario posee solicitudes pendientes
+ */
   solicitudesPendientes: boolean = false;
+  /**
+   * Todas las invitaciones del usuario
+ */
   invitaciones: any = []
+  /**
+   * @ignore
+ */
   pertenecesExistente: any=true;
 
-
+  /**
+ * Constructor
+  * @param {AuthService} authService El servicio para verificar al usuario
+  * @param {GrupoService} grupoService El servicio para manejar grupos
+  * @param {DireccionService} direccionService El servicio para obtener la direccion
+  * @param {UsuarioService} usuarioService El servicio para manejar al usuario
+  * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
+  * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
+ */
   constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private invitacionService: InvitacionService) {
     console.log(this.authService.token + "hello");
     this.grupo = new Grupo();
@@ -38,9 +83,16 @@ export class NavbarComponent implements OnInit {
     this.nuevoPerteneces = new Perteneces();
   }
 
+  /**
+   * @ignore
+ */
   async ngOnInit() {
   }
 
+  /**
+   * Crea un grupo nuevo
+   * @param {NgForm} form Los datos del grupo a crear
+ */
   async onSubmit(form: NgForm) {
     this.grupo.nombre = form.value.nombre;
     this.grupo.codigo = Math.floor(10000000 + Math.random() * 90000000);
@@ -72,7 +124,11 @@ export class NavbarComponent implements OnInit {
     this.pertenecesService.createPerteneces(this.perteneces);
     await this.sleep(1000);
   }
-
+  
+  /**
+   * El usuario se une a un grupo preexistente
+   * @param {NgForm} form Los datos del grupo a unirse
+ */
   async onSubmit2(form: NgForm) {
     this.addGrupoCodigo = form.value.nombre;
     this.grupoService.getGrupoCodigo(this.addGrupoCodigo).subscribe(res => {
@@ -97,12 +153,18 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  /**
+   * @ignore
+ */
   Open() {
     this.isOpen = !this.isOpen;
   }
 
+   /**
+   * @ignore
+ */
   async sleep(ms) {
-    ms = ms / 2;
+    ms = ms;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

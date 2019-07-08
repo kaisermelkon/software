@@ -12,6 +12,9 @@ import { Perteneces } from 'src/app/shared/models/Perteneces';
 import { Direccion } from 'src/app/shared/models/Direccion';
 import { Invitacion } from 'src/app/shared/models/Invitaciones';
 
+/**
+   * Grupo Component
+ */
 @Component({
   selector: 'app-grupo',
   templateUrl: './grupo.component.html',
@@ -19,16 +22,49 @@ import { Invitacion } from 'src/app/shared/models/Invitaciones';
 })
 export class GrupoComponent implements OnInit {
 
+  /**
+   * El usuario es el administrador del grupo
+ */
   administrador: boolean = false;
+  /**
+   * Los usuarios del grupo
+ */
   usuarios: any = [];
+  /**
+   * @ignore
+ */
   usuariosId: any = [];
+  /**
+   * @ignore
+ */
   tempUsuarios: any;
+  /**
+   * @ignore
+ */
   pertenecesId: any;
+  /**
+   * @ignore
+ */
   usuarioModal: any;
+  /**
+   * La invitacion para pedir transporte
+ */
   invitacion: any;
 
+  /**
+ * Constructor
+  * @param {CarroService} carroService El servicio para obtener los datos de los vehiculos
+  * @param {GrupoService} grupoService El servicio para manejar grupos
+  * @param {DireccionService} direccionService El servicio para obtener la direccion
+  * @param {UsuarioService} usuarioService El servicio para manejar al usuario
+  * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
+  * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
+ */
   constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService, private direccionService: DireccionService, private invitacionService: InvitacionService) { }
 
+  /**
+   * Trae todos los detalles del grupo
+ */
   async ngOnInit() {
     this.invitacion = new Invitacion();
     this.usuarioModal = new Usuario();
@@ -54,6 +90,9 @@ export class GrupoComponent implements OnInit {
     }
   }
 
+/**
+   * Verifica que los usuarios posean vehiculo
+ */
   conCarro(usuario: Usuario) {
     if (usuario.carroId === null || this.usuarioService.usuario.id === usuario.id) {
       return true;
@@ -63,6 +102,9 @@ export class GrupoComponent implements OnInit {
     }
   }
 
+  /**
+   *Verifica que el usuario pueda eliminar a otros usuarios del grupo
+ */
   eliminarEnabled(usuario: Usuario) {
     if (this.administrador) {
       if (usuario.id === this.grupoService.grupo.administradorId) {
@@ -82,6 +124,9 @@ export class GrupoComponent implements OnInit {
     }
   }
 
+  /**
+   * Elimina al usuario del grupo
+ */
   async eliminar(usuario: Usuario) {
     this.pertenecesService.getPerUsuariosGrupos(this.grupoService.grupo.id.toString(), usuario.id.toString()).subscribe(res => {
       this.pertenecesId = res;
@@ -92,6 +137,9 @@ export class GrupoComponent implements OnInit {
     await this.sleep(1000);
   }
 
+  /**
+   * Activa el modal para pedir transporte
+ */
   async activarModal(usuario: Usuario) {
     this.usuarioModal = usuario;
     console.log(usuario);
@@ -103,6 +151,10 @@ export class GrupoComponent implements OnInit {
     await this.sleep(1000);
   }
 
+  /**
+   * Envia la solicitud de trasnporte
+   * @param {NgForm} form Los datos de la solicitud a mandar
+ */
   async onSubmit(form: NgForm) {
     console.log(true)
     this.invitacion.usuarioId = this.usuarioService.usuario.id;
@@ -114,8 +166,11 @@ export class GrupoComponent implements OnInit {
     await this.sleep(1000);
   }
 
+/**
+   * @ignore
+ */
   async sleep(ms) {
-    ms = ms / 2;
+    ms = ms;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
