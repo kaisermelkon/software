@@ -9,6 +9,9 @@ import { Grupo } from 'src/app/shared/models/Grupos';
 import { DireccionService } from 'src/app/shared/services/direccion/direccion.service';
 import { Invitacion } from 'src/app/shared/models/Invitaciones';
 
+/**
+   * Invitaciones Componente
+ */
 @Component({
   selector: 'app-invitaciones',
   templateUrl: './invitaciones.component.html',
@@ -16,16 +19,44 @@ import { Invitacion } from 'src/app/shared/models/Invitaciones';
 })
 export class InvitacionesComponent implements OnInit {
 
+  /**
+   * @ignore
+ */
   solicitudes: any = [];
+  /**
+   * Todas las invitaciones del usuario
+ */
   invitaciones: any = [];
+  /**
+   * @ignore
+ */
   solicitudTemporal: any;
+  /**
+   * @ignore
+ */
   usuarioTemporal: any;
+  /**
+   * @ignore
+ */
   grupoTemporal: any;
+  /**
+   * @ignore
+ */
   invitacionTemporal: any;
 
-
+  /**
+ * Constructor
+  * @param {GrupoService} grupoService El servicio para manejar grupos
+  * @param {DireccionService} direccionService El servicio para obtener la direccion
+  * @param {UsuarioService} usuarioService El servicio para manejar al usuario
+  * @param {CarroService} carroService El servicio para obtener los carros
+  * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
+ */
   constructor(private invitacionService: InvitacionService, private usuarioService: UsuarioService, private grupoService: GrupoService, private carroService: CarroService, private direccionService: DireccionService) { }
 
+  /**
+   * Obtiene todas las invitaciones del usuario para mostrarlas en pantalla
+ */
   async ngOnInit() {
     this.solicitudTemporal = new Solicitud();
     this.usuarioTemporal = new Usuario();
@@ -75,6 +106,10 @@ export class InvitacionesComponent implements OnInit {
 
   }
 
+  /**
+   * Activa el modal de los detalles de la solicitud
+   * @param {Solicitud} solicitud La solicitud de la cual se desea obtener mas detalles
+ */
   async activarModal(solicitud: Solicitud) {
     this.solicitudTemporal = solicitud;
     this.invitacionService.getInvitacion(solicitud.invitacionId.toString());
@@ -91,6 +126,9 @@ export class InvitacionesComponent implements OnInit {
 
   }
 
+  /**
+   * Acepta un pedido de transporte
+ */
   async aceptar() {
     this.invitacionTemporal.usuarioId = this.invitacionService.invitacion.usuarioExId;
     this.invitacionTemporal.usuarioExId = this.invitacionService.invitacion.usuarioId;
@@ -101,12 +139,22 @@ export class InvitacionesComponent implements OnInit {
     this.eliminar(this.solicitudTemporal);
   }
 
+
+  /**
+   * Elimina una solicitud 
+   * @param {Solicitud} solicitud La solicitud a eliminar
+ */
   async eliminar(solicitud: Solicitud) {
     this.invitacionService.deleteInvitacion(solicitud.invitacionId.toString());
     await this.sleep(500);
   }
 
+
+  /**
+   * @ignore
+ */
   async sleep(ms) {
+    ms=ms*2;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

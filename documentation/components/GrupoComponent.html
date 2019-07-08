@@ -1,0 +1,1501 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>metro-uber documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">metro-uber documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>GrupoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/grupo/grupo.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Grupo Component</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-grupo</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./grupo.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./grupo.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#administrador">administrador</a>
+                            </li>
+                            <li>
+                                <a href="#invitacion">invitacion</a>
+                            </li>
+                            <li>
+                                <a href="#usuarios">usuarios</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#activarModal">activarModal</a>
+                            </li>
+                            <li>
+                                <a href="#conCarro">conCarro</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#eliminar">eliminar</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarEnabled">eliminarEnabled</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onSubmit">onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(grupoService: <a href="../injectables/GrupoService.html">GrupoService</a>, usuarioService: <a href="../injectables/UsuarioService.html">UsuarioService</a>, pertenecesService: <a href="../injectables/PertenecesService.html">PertenecesService</a>, carroService: <a href="../injectables/CarroService.html">CarroService</a>, direccionService: <a href="../injectables/DireccionService.html">DireccionService</a>, invitacionService: <a href="../injectables/InvitacionService.html">InvitacionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/grupo/grupo.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>grupoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GrupoService.html" target="_self" >GrupoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para manejar grupos</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>usuarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuarioService.html" target="_self" >UsuarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para manejar al usuario</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>pertenecesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PertenecesService.html" target="_self" >PertenecesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para unir grupos con usuarios</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>carroService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarroService.html" target="_self" >CarroService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para obtener los datos de los vehiculos</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>direccionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DireccionService.html" target="_self" >DireccionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para obtener la direccion</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>invitacionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/InvitacionService.html" target="_self" >InvitacionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>El servicio para obtener las invitaciones</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activarModal"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            activarModal
+                        </b>
+                        <a href="#activarModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>activarModal(usuario: <a href="../classes/Usuario.html">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Activa el modal para pedir transporte</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>usuario</td>
+                                    <td>
+                                                <code><a href="../classes/Usuario.html" target="_self" >Usuario</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="conCarro"></a>
+                    <span class="name">
+                        <b>
+                            conCarro
+                        </b>
+                        <a href="#conCarro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>conCarro(usuario: <a href="../classes/Usuario.html">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Verifica que los usuarios posean vehiculo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>usuario</td>
+                                    <td>
+                                                <code><a href="../classes/Usuario.html" target="_self" >Usuario</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminar"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            eliminar
+                        </b>
+                        <a href="#eliminar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>eliminar(usuario: <a href="../classes/Usuario.html">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Elimina al usuario del grupo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>usuario</td>
+                                    <td>
+                                                <code><a href="../classes/Usuario.html" target="_self" >Usuario</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarEnabled"></a>
+                    <span class="name">
+                        <b>
+                            eliminarEnabled
+                        </b>
+                        <a href="#eliminarEnabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarEnabled(usuario: <a href="../classes/Usuario.html">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Verifica que el usuario pueda eliminar a otros usuarios del grupo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>usuario</td>
+                                    <td>
+                                                <code><a href="../classes/Usuario.html" target="_self" >Usuario</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Trae todos los detalles del grupo</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            onSubmit
+                        </b>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit(form: <a href="https://angular.io/api/forms/NgForm" target="_blank">NgForm</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/app/components/grupo/grupo.component.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Envia la solicitud de trasnporte</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>form</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/forms/NgForm" target="_blank" >NgForm</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Los datos de la solicitud a mandar</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="administrador"></a>
+                        <span class="name">
+                            <b>
+                            administrador</b>
+                            <a href="#administrador"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/grupo/grupo.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>El usuario es el administrador del grupo</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="invitacion"></a>
+                        <span class="name">
+                            <b>
+                            invitacion</b>
+                            <a href="#invitacion"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/grupo/grupo.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>La invitacion para pedir transporte</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="usuarios"></a>
+                        <span class="name">
+                            <b>
+                            usuarios</b>
+                            <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/grupo/grupo.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Los usuarios del grupo</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { NgForm } from &#x27;@angular/forms&#x27;;
+import { GrupoService } from &#x27;src/app/shared/services/grupo/grupo.service&#x27;;
+import { UsuarioService } from &#x27;src/app/shared/services/usuario/usuario.service&#x27;;
+import { PertenecesService } from &#x27;src/app/shared/services/perteneces/perteneces.service&#x27;;
+import { CarroService } from &#x27;src/app/shared/services/carro/carro.service&#x27;;
+import { DireccionService } from &#x27;src/app/shared/services/direccion/direccion.service&#x27;;
+import { InvitacionService } from &#x27;src/app/shared/services/invitacion/invitacion.service&#x27;;
+import { Usuario } from &#x27;src/app/shared/models/Usuario&#x27;;
+import { Grupo } from &#x27;src/app/shared/models/Grupos&#x27;;
+import { Perteneces } from &#x27;src/app/shared/models/Perteneces&#x27;;
+import { Direccion } from &#x27;src/app/shared/models/Direccion&#x27;;
+import { Invitacion } from &#x27;src/app/shared/models/Invitaciones&#x27;;
+
+/**
+   * Grupo Component
+ */
+@Component({
+  selector: &#x27;app-grupo&#x27;,
+  templateUrl: &#x27;./grupo.component.html&#x27;,
+  styleUrls: [&#x27;./grupo.component.css&#x27;]
+})
+export class GrupoComponent implements OnInit {
+
+  /**
+   * El usuario es el administrador del grupo
+ */
+  administrador: boolean &#x3D; false;
+  /**
+   * Los usuarios del grupo
+ */
+  usuarios: any &#x3D; [];
+  /**
+   * @ignore
+ */
+  usuariosId: any &#x3D; [];
+  /**
+   * @ignore
+ */
+  tempUsuarios: any;
+  /**
+   * @ignore
+ */
+  pertenecesId: any;
+  /**
+   * @ignore
+ */
+  usuarioModal: any;
+  /**
+   * La invitacion para pedir transporte
+ */
+  invitacion: any;
+
+  /**
+ * Constructor
+  * @param {CarroService} carroService El servicio para obtener los datos de los vehiculos
+  * @param {GrupoService} grupoService El servicio para manejar grupos
+  * @param {DireccionService} direccionService El servicio para obtener la direccion
+  * @param {UsuarioService} usuarioService El servicio para manejar al usuario
+  * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
+  * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
+ */
+  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService, private direccionService: DireccionService, private invitacionService: InvitacionService) { }
+
+  /**
+   * Trae todos los detalles del grupo
+ */
+  async ngOnInit() {
+    this.invitacion &#x3D; new Invitacion();
+    this.usuarioModal &#x3D; new Usuario();
+    await this.sleep(1000);
+    if (this.grupoService.grupo.administradorId &#x3D;&#x3D;&#x3D; this.usuarioService.usuario.id) {
+      this.administrador &#x3D; true;
+    }
+    await this.pertenecesService.getPerUsuarios(this.grupoService.grupo.id).subscribe(res &#x3D;&gt; {
+      this.usuariosId &#x3D; res;
+
+    }, err &#x3D;&gt; console.log(err));
+    await this.sleep(1000);
+    console.log(this.usuariosId + &quot; todos los usuarios Id&quot;)
+    for (let usuario of this.usuariosId) {
+      console.log(usuario + &quot; deveria ser el id&quot;);
+      this.usuarioService.getUsuarioDetalle(usuario).subscribe(res &#x3D;&gt; {
+        this.tempUsuarios &#x3D; res;
+
+      }, err &#x3D;&gt; console.log(err));;
+      console.log(this.tempUsuarios + &quot; el usuario&quot;)
+      await this.sleep(1000);
+      this.usuarios.push(this.tempUsuarios);
+    }
+  }
+
+/**
+   * Verifica que los usuarios posean vehiculo
+ */
+  conCarro(usuario: Usuario) {
+    if (usuario.carroId &#x3D;&#x3D;&#x3D; null || this.usuarioService.usuario.id &#x3D;&#x3D;&#x3D; usuario.id) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  /**
+   *Verifica que el usuario pueda eliminar a otros usuarios del grupo
+ */
+  eliminarEnabled(usuario: Usuario) {
+    if (this.administrador) {
+      if (usuario.id &#x3D;&#x3D;&#x3D; this.grupoService.grupo.administradorId) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+    else {
+      if (usuario.id &#x3D;&#x3D;&#x3D; this.usuarioService.usuario.id) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+  }
+
+  /**
+   * Elimina al usuario del grupo
+ */
+  async eliminar(usuario: Usuario) {
+    this.pertenecesService.getPerUsuariosGrupos(this.grupoService.grupo.id.toString(), usuario.id.toString()).subscribe(res &#x3D;&gt; {
+      this.pertenecesId &#x3D; res;
+    }, err &#x3D;&gt; console.log(err));
+    await this.sleep(1000);
+    console.log(this.pertenecesId + &quot; este es el perteneces id&quot;)
+    this.pertenecesService.deletePerteneces(this.pertenecesId);
+    await this.sleep(1000);
+  }
+
+  /**
+   * Activa el modal para pedir transporte
+ */
+  async activarModal(usuario: Usuario) {
+    this.usuarioModal &#x3D; usuario;
+    console.log(usuario);
+    if (usuario.direccionId !&#x3D;&#x3D; null) {
+      this.direccionService.getDireccion(usuario.direccionId.toString());
+      await this.sleep(1000);
+    }
+    this.carroService.getCarro(usuario.carroId.toString());
+    await this.sleep(1000);
+  }
+
+  /**
+   * Envia la solicitud de trasnporte
+   * @param {NgForm} form Los datos de la solicitud a mandar
+ */
+  async onSubmit(form: NgForm) {
+    console.log(true)
+    this.invitacion.usuarioId &#x3D; this.usuarioService.usuario.id;
+    this.invitacion.grupoId &#x3D; this.grupoService.grupo.id;
+    this.invitacion.tipo &#x3D; &quot;invitacion&quot;;
+    this.invitacion.descripcion &#x3D; form.value.descripcion;
+    this.invitacion.usuarioExId &#x3D; this.usuarioModal.id;
+    this.invitacionService.createInvitacion(this.invitacion);
+    await this.sleep(1000);
+  }
+
+/**
+   * @ignore
+ */
+  async sleep(ms) {
+    ms &#x3D; ms;
+    return new Promise(resolve &#x3D;&gt; setTimeout(resolve, ms));
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;centrado&quot;&gt;
+  &lt;div class&#x3D;&quot;container text-center&quot;&gt;
+    &lt;br&gt;
+    &lt;div&gt;
+      &lt;div class&#x3D;&quot;card text-center unica&quot;&gt;
+        &lt;div class&#x3D;&quot;card-block&quot;&gt;
+          &lt;div class&#x3D;&quot;card-tittle&quot;&gt;
+            &lt;h2&gt;{{this.grupoService.grupo.nombre}}&lt;/h2&gt;
+          &lt;/div&gt;
+          &lt;table class&#x3D;&quot;table&quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th scope&#x3D;&quot;col&quot;&gt;Nombre&lt;/th&gt;
+                &lt;th scope&#x3D;&quot;col&quot;&gt;Telefono&lt;/th&gt;
+                &lt;th scope&#x3D;&quot;col&quot;&gt;Correo&lt;/th&gt;
+                &lt;th scope&#x3D;&quot;col&quot;&gt;Accion&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              &lt;tr *ngFor&#x3D;&quot;let usuario of usuarios&quot;&gt;
+                &lt;th scope&#x3D;&quot;row&quot;&gt;{{usuario.nombre}}&lt;/th&gt;
+                &lt;td&gt;{{usuario.telefono}}&lt;/td&gt;
+                &lt;td&gt;{{usuario.correo}}&lt;/td&gt;
+                &lt;td&gt;
+                  &lt;button href&#x3D;&quot;#&quot; class&#x3D;&quot;btn btn-success espacio&quot; [disabled]&#x3D;&quot;conCarro(usuario)&quot; data-toggle&#x3D;&quot;modal&quot;
+                    data-target&#x3D;&quot;#modal7&quot; (click)&#x3D;&quot;activarModal(usuario)&quot;&gt;Pedir Cola&lt;/button&gt;
+                  &lt;button href&#x3D;&quot;#&quot; class&#x3D;&quot;btn btn-danger espacio&quot; [disabled]&#x3D;&quot;!eliminarEnabled(usuario)&quot;
+                    (click)&#x3D;&quot;eliminar(usuario)&quot;&gt;Eliminar&lt;/button&gt;
+                &lt;/td&gt;
+              &lt;/tr&gt;
+
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;script type&#x3D;&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;/div&gt;
+
+&lt;!-- Modal Mostrar Datos Personales --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;modal7&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;exampleModalLabel&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+      &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h5 class&#x3D;&quot;modal-title text-center&quot; id&#x3D;&quot;exampleModalLabel&quot;&gt;Datos del Usuario&lt;/h5&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;&gt;
+          &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;form (ngSubmit)&#x3D;&quot;onSubmit(form)&quot; #form&#x3D;&quot;ngForm&quot;&gt;
+          &lt;div class&#x3D;&quot;form-row row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-12&quot;&gt;
+              &lt;label class&#x3D;&quot;modalish&quot;&gt;&lt;b&gt;Direccion del Usuario&lt;/b&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;br&gt;
+            &lt;div class&#x3D;&quot;col-12 sangria&quot;&gt;
+              &lt;p&gt;Municipio: {{this.direccionService.direccion.municipio}}&lt;/p&gt;
+              &lt;p&gt;Urbanizacion: {{this.direccionService.direccion.urbanizacion}}&lt;/p&gt;
+              &lt;p&gt;Descripcion: {{this.direccionService.direccion.descripcion}}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-12 &quot;&gt;
+              &lt;label class&#x3D;&quot;modalish&quot;&gt;&lt;b&gt;Informacion del Vehiculo&lt;/b&gt;&lt;/label&gt;
+            &lt;/div&gt;
+            &lt;br&gt;
+            &lt;div class&#x3D;&quot;col-12 sangria&quot;&gt;
+              &lt;p&gt;Placa: {{this.carroService.carro.placa}}&lt;/p&gt;
+              &lt;p&gt;Marca: {{this.carroService.carro.marca}}&lt;/p&gt;
+              &lt;p&gt;Modelo: {{this.carroService.carro.modelo}}&lt;/p&gt;
+              &lt;p&gt;Año: {{this.carroService.carro.ano}}&lt;/p&gt;
+              &lt;p&gt;Color: {{this.carroService.carro.color}}&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;p&gt;&lt;b&gt;Ingrese una descripcion&lt;/b&gt;&lt;/p&gt;
+              &lt;div&gt;
+                &lt;div&gt;
+              &lt;input ngModel size&#x3D;&quot;90&quot; maxlength&#x3D;&quot;255&quot; class&#x3D;&quot;form-control&quot;  placeholder&#x3D;&quot;Descripcion&quot; name&#x3D;&quot;descripcion&quot; type&#x3D;&quot;text&quot;
+                #descripcion&#x3D;&quot;ngModel&quot;&gt;
+              &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;br&gt;
+            &lt;div class&#x3D;&quot;modal-footer sangriafuerte&quot;&gt;
+              &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary espacio modalish&quot;&gt;Pedir Cola&lt;/button&gt;
+              &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary espacio&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;Cancelar&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;footer&gt;
+  &lt;div class&#x3D;&quot;row footer&quot;&gt;
+    &lt;div class&#x3D;&quot;col-4 p-5&quot;&gt;
+      &lt;h3 class&#x3D;&quot;text-light&quot;&gt;MetroUber&lt;/h3&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./grupo.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.centrado {
+
+    background: #2b2b2a;
+    background-position: center;
+  }
+
+  h5{
+    text-align: center;
+  }
+
+  .sangria{
+    margin:auto 40px;
+  }
+
+  .sangriafuerte{
+    margin:auto 100px;
+  }
+
+  .unica{
+width: 70%;
+margin: auto;
+  }
+
+button{
+  margin: 8px auto;
+  justify-content: center;
+}
+
+  .container {
+    background: #333333;
+    position: relative;
+    border: 1px solid #4e4d4d;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: inset 0 0 10px #000;
+    margin: auto;
+    padding-bottom: 50px;
+  }
+  
+  .container h2 {
+    text-align: center;
+    color:black;
+    font-weight: normal;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+    margin: 5px 0px;
+  }
+  
+  .list-group {
+    margin: auto;
+  
+  }
+  
+  a {
+    margin: 1px;
+    display: inline-block;
+  }
+  
+  footer {
+    background: #2b2b2a;
+    color: rgb(226, 226, 266);
+  }
+  
+  .footer h3 {
+    text-align: left;
+    color: rgb(226, 226, 266);
+    font-weight: normal;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+    font-size: 10pt;
+    margin: 30px 0px;
+  }
+
+  .fondo{
+    background: white;
+    text-align: center;
+    color:black;
+    font-weight: normal;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+    margin: 5px 0px;
+
+  }
+
+  /* .aparte{
+    display: block;
+  } */
+
+  .espacio{
+    padding: 10px;
+    margin: 0px 2px;
+  }
+  
+  img{
+    padding: 10px;
+    display: inline-block;
+  }
+  
+  .nombre {
+    color: white;
+    margin: 8px 100px 8px 2px;
+    font-size: 17px;
+    display: inline-block;
+  }
+  
+  blockquote {
+      margin: 5px;
+      width: auto;
+      color: black;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+      padding: 20px;
+      text-transform: uppercase;
+    }
+    
+    h3 {
+      text-align: left;
+      margin-bottom: 5px;
+      color: black;
+      padding: 0px 20px;
+      text-transform: uppercase;
+    }
+    
+
+    
+    input {
+      background-color: ghostwhite;
+      display: block;
+      font-size: 15px;
+      margin: 10px 0px;
+    }
+    
+    a {
+      color: black;
+      background-color: darkgrey;
+      font-size: 17px;
+      text-decoration: none;
+      margin-top: 8px;
+      border:1px solid black;
+      border-radius: 3px;
+      padding: 8px;
+    }
+
+    .modalish{
+      display: block;
+    }
+    
+    .centrado {
+      background: #2b2b2a;
+      background-position: center;
+      font-family: &#x27;Poppins&#x27;, sans-serif;
+      align-content: center;
+      vertical-align: middle;
+    }
+    
+    .formulario {
+      align-items: center;
+      background-color:darkgray;
+      font-family: &#x27;Poppins&#x27;, sans-serif;
+      border: 1px solid black;
+      max-width: 500px;
+      border-radius: 10px;
+      width: 40%;
+      margin: auto;
+    }
+    
+    footer {
+      background: #2b2b2a;
+      color: rgb(226, 226, 266);
+    }
+    
+    .footer h3 {
+      text-align: left;
+      color: rgb(226, 226, 266);
+      font-weight: normal;
+      font-family: &#x27;Poppins&#x27;, sans-serif;
+      font-size: 10pt;
+      margin: 30px 0px;
+    }
+    
+    .centro {
+      text-align: center;
+      vertical-align: middle;
+      font-size: 8px;
+    }
+    
+    @media (max-width: 768px) {
+      form {
+        flex-direction: column;
+      }
+    
+      h2 {
+        font-size: 20px;
+      }
+    
+      p {
+        font-size: 13px;
+      }
+    
+      input {
+        font-size: 13px;
+      }
+    
+      button {
+        font-size: 13px;
+      }
+    }
+    
+    @media (max-width: 512px) {
+      form {
+        flex-direction: column;
+      }
+    
+      h2 {
+        font-size: 15px;
+        margin-bottom: 0px;
+      }
+    
+      p {
+        display: none;
+      }
+    
+      input {
+        font-size: 13px;
+        margin: 3px;
+      }
+    
+      button {
+        font-size: 10px;
+      }
+    }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="centrado">  <div class="container text-center">    <br>    <div>      <div class="card text-center unica">        <div class="card-block">          <div class="card-tittle">            <h2>{{this.grupoService.grupo.nombre}}</h2>          </div>          <table class="table">            <thead>              <tr>                <th scope="col">Nombre</th>                <th scope="col">Telefono</th>                <th scope="col">Correo</th>                <th scope="col">Accion</th>              </tr>            </thead>            <tbody>              <tr *ngFor="let usuario of usuarios">                <th scope="row">{{usuario.nombre}}</th>                <td>{{usuario.telefono}}</td>                <td>{{usuario.correo}}</td>                <td>                  <button href="#" class="btn btn-success espacio" [disabled]="conCarro(usuario)" data-toggle="modal"                    data-target="#modal7" (click)="activarModal(usuario)">Pedir Cola</button>                  <button href="#" class="btn btn-danger espacio" [disabled]="!eliminarEnabled(usuario)"                    (click)="eliminar(usuario)">Eliminar</button>                </td>              </tr>            </tbody>          </table>        </div>      </div>    </div>  </div>  <script type="js/bootstrap.min.js"></script></div><!-- Modal Mostrar Datos Personales --><div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">  <div class="modal-dialog" role="document">    <div class="modal-content">      <div class="modal-header">        <h5 class="modal-title text-center" id="exampleModalLabel">Datos del Usuario</h5>        <button type="button" class="close" data-dismiss="modal" aria-label="Close">          <span aria-hidden="true">&times;</span>        </button>      </div>      <div class="modal-body">        <form (ngSubmit)="onSubmit(form)" #form="ngForm">          <div class="form-row row">            <div class="col-12">              <label class="modalish"><b>Direccion del Usuario</b></label>            </div>            <br>            <div class="col-12 sangria">              <p>Municipio: {{this.direccionService.direccion.municipio}}</p>              <p>Urbanizacion: {{this.direccionService.direccion.urbanizacion}}</p>              <p>Descripcion: {{this.direccionService.direccion.descripcion}}</p>            </div>            <div class="col-12 ">              <label class="modalish"><b>Informacion del Vehiculo</b></label>            </div>            <br>            <div class="col-12 sangria">              <p>Placa: {{this.carroService.carro.placa}}</p>              <p>Marca: {{this.carroService.carro.marca}}</p>              <p>Modelo: {{this.carroService.carro.modelo}}</p>              <p>Año: {{this.carroService.carro.ano}}</p>              <p>Color: {{this.carroService.carro.color}}</p>            </div>            <div>              <p><b>Ingrese una descripcion</b></p>              <div>                <div>              <input ngModel size="90" maxlength="255" class="form-control"  placeholder="Descripcion" name="descripcion" type="text"                #descripcion="ngModel">              </div>              </div>            </div>            <br>            <div class="modal-footer sangriafuerte">              <button type="submit" class="btn btn-primary espacio modalish">Pedir Cola</button>              <button type="button" class="btn btn-secondary espacio" data-dismiss="modal">Cancelar</button>            </div>          </div>        </form>      </div>    </div>  </div></div><footer>  <div class="row footer">    <div class="col-4 p-5">      <h3 class="text-light">MetroUber</h3>      <br>      <br>      <br>      <br>      <br>      <br>    </div>  </div></footer></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'GrupoComponent', 'selector': 'app-grupo'},{'name': 'InicioComponent', 'selector': 'app-inicio'},{'name': 'InvitacionesComponent', 'selector': 'app-invitaciones'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PerfilComponent', 'selector': 'app-perfil'},{'name': 'RegistroComponent', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GrupoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GrupoComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

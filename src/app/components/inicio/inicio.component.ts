@@ -4,6 +4,9 @@ import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service'
 import { Grupo } from './../../shared/models/Grupos';
 import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces.service';
 
+/**
+   * Inicio Component
+ */
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -11,19 +14,40 @@ import { PertenecesService } from 'src/app/shared/services/perteneces/perteneces
 })
 export class InicioComponent implements OnInit {
 
+  /**
+   * Los grupos a los que pertenece el usuario
+ */
   grupos: any = [];
+  /**
+   * @ignore
+ */
   gruposId: any = [];
+  /**
+   * @ignore
+ */
   tempGrupos: any;
 
+  /**
+ * Constructor
+  * @param {GrupoService} grupoService El servicio para manejar grupos
+  * @param {UsuarioService} usuarioService El servicio para manejar al usuario
+  * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
+ */
   constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) {
     console.log(this.usuarioService.usuario);
     
   }
 
+  /**
+   * @ignore
+ */
   async ngOnInit() {
     await this.getGrupos();
   }
 
+  /**
+   * Obtiene los grupos a mostrar en pantalla
+ */
   async getGrupos() {
     
     await this.pertenecesService.getPerGrupos(this.usuarioService.usuario.id).subscribe(res => {
@@ -45,11 +69,18 @@ export class InicioComponent implements OnInit {
     console.log(this.grupos);
   }
 
+  /**
+   * Se obtiene los detalles del grupo que se selecciona
+   * @param {number} id El id del grupo seleccionado
+ */
   async detalles(id: number){
     console.log(id);
     this.grupoService.getGrupoDetalle(id.toString());
   }
 
+  /**
+   * Verifica que el usuario sea el administrador del grupo
+ */
   async grupoCodigo(grupo: Grupo){
     console.log(this.usuarioService.usuario.id+"+"+grupo.administradorId);
     if(this.usuarioService.usuario.id===grupo.administradorId){
@@ -63,9 +94,11 @@ export class InicioComponent implements OnInit {
   }
 
 
-
+  /**
+   * @ignore
+ */
   async sleep(ms) {
-    ms=ms/2;
+    ms=ms;
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 

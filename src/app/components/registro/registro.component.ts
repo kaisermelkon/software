@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import {Usuario} from '../../shared/models/Usuario';
 
+/**
+ * Registro Component
+ */
 
 @Component({
   selector: 'app-registro',
@@ -11,17 +14,32 @@ import {Usuario} from '../../shared/models/Usuario';
 })
 export class RegistroComponent implements OnInit {
 
-  usuario: Usuario;
+   /**
+ * Es el usuario que se va a crear en el componente
+ */
+ usuario: Usuario;
 
+
+   /**
+    * Crea un nuevo usuario para ser usado en la aplicacion
+ * @param {AuthService} authService El servicio de registro
+ */
   constructor(protected authService: AuthService) {
       this.usuario=new Usuario();
    }
 
+  /**
+ * NgOnInit
+ */
   ngOnInit() {
   }
 
 
-
+  /**
+   *  Se registra un nuevo usuario en la aplicacion
+ * @param {NgForm} form  La data del usuario a registrar
+ * @returns El usuario registrado
+ */
   async onSubmit(form: NgForm){
     const password1=form.value.password;
     const password2=form.value.password2;

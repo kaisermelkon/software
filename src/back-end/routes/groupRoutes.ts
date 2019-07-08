@@ -1,14 +1,27 @@
 import { Router } from 'express';
 import gruposController  from './../controllers/GruposController';
 
+/**
+   * Las rutas del grupo
+ */
 class groupRoutes{
-    
+   
+    /**
+   * variable router del tipo Router
+   * para redirigir al controlador
+ */
     public router: Router = Router();
 
+    /**
+   * Corre el metodo config
+ */
     constructor(){
         this.config();
     }
 
+     /**
+   * Corre el controlador con sus respectivas rutas
+ */
     config(): void{
         this.router.get('/', gruposController.get);
         this.router.get('/:id', gruposController.getOne);
@@ -23,5 +36,8 @@ class groupRoutes{
 
 }
 
+/**
+   * Exporta las rutas
+ */
 const groupRoute= new groupRoutes();
 export default groupRoute.router;
