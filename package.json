@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "nodemon dist/out-tsc/src/back-end/base.js",
-    "compodoc": "npx compodoc -p src/tsconfig.app.json"
+    "compodoc": "npx compodoc -p src/tsconfig.app.json",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
