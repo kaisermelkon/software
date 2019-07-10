@@ -22,4 +22,8 @@ export class Carro {
     * variable modelo de tipo string
     */
     public modelo: string;
+    /**
+    * variable marca de tipo string
+    */
+    public marca: string;
 }
