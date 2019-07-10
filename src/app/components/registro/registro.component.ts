@@ -24,7 +24,7 @@ export class RegistroComponent implements OnInit {
     * Crea un nuevo usuario para ser usado en la aplicacion
  * @param {AuthService} authService El servicio de registro
  */
-  constructor(protected authService: AuthService) {
+  constructor(public authService: AuthService) {
       this.usuario=new Usuario();
    }
 

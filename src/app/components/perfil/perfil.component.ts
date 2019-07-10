@@ -44,7 +44,7 @@ export class PerfilComponent implements OnInit {
   * @param {CarroService} carroService El servicio para actualizar al carro
   * @param {DireccionService} direccionService El servicio para actualizar la direccion
  */
-  constructor(private usuarioService: UsuarioService, private carroService: CarroService, private direccionService: DireccionService) { }
+  constructor(public usuarioService: UsuarioService, public carroService: CarroService, public direccionService: DireccionService) { }
 
   /**
  * Obtiene la data del usuario, carro y direccion para mostrar en pantalla
