@@ -3,13 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node",
+    "start": "node server.js",
     "build": "tsc -w",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev": "nodemon dist/out-tsc/src/back-end/base.js",
-    "compodoc": "npx compodoc -p src/tsconfig.app.json"
+    "compodoc": "npx compodoc -p src/tsconfig.app.json",
+    "postinstall": "ng build --aot -prod",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +38,7 @@
     "firebase": "^6.0.2",
     "mysql2": "^1.6.5",
     "ngx-bootstrap": "^4.2.0",
+    "path": "^0.12.7",
     "promise-mysql": "^3.3.2",
     "rxjs": "~6.3.3",
     "sequelize": "^5.8.7",
@@ -45,8 +48,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.11.0",
-    "@angular/cli": "~7.3.8",
-    "@angular/compiler-cli": "~7.1.0",
+    "@angular/cli": "^8.1.0",
+    "@angular/compiler-cli": "^7.1.4",
     "@angular/language-service": "~7.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
