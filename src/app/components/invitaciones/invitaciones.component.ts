@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { InvitacionService } from 'src/app/shared/services/invitacion/invitacion.service';
 import { UsuarioService } from 'src/app/shared/services/usuario/usuario.service';
 import { GrupoService } from 'src/app/shared/services/grupo/grupo.service';
@@ -147,6 +148,10 @@ export class InvitacionesComponent implements OnInit {
   async eliminar(solicitud: Solicitud) {
     this.invitacionService.deleteInvitacion(solicitud.invitacionId.toString());
     await this.sleep(500);
+  }
+
+  async onSubmit(form: NgForm){
+
   }
 
 
