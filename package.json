@@ -11,7 +11,7 @@
     "dev": "nodemon dist/out-tsc/src/back-end/base.js",
     "compodoc": "npx compodoc -p src/tsconfig.app.json",
     "postinstall": "ng build --prod",
-    "heroku-postbuild": "ng build --aot -prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
