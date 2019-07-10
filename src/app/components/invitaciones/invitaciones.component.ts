@@ -52,7 +52,7 @@ export class InvitacionesComponent implements OnInit {
   * @param {CarroService} carroService El servicio para obtener los carros
   * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
  */
-  constructor(private invitacionService: InvitacionService, private usuarioService: UsuarioService, private grupoService: GrupoService, private carroService: CarroService, private direccionService: DireccionService) { }
+  constructor(public invitacionService: InvitacionService, public usuarioService: UsuarioService, public grupoService: GrupoService, public carroService: CarroService, public direccionService: DireccionService) { }
 
   /**
    * Obtiene todas las invitaciones del usuario para mostrarlas en pantalla

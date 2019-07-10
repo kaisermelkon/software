@@ -33,7 +33,7 @@ export class InicioComponent implements OnInit {
   * @param {UsuarioService} usuarioService El servicio para manejar al usuario
   * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
  */
-  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService) {
+  constructor(public grupoService: GrupoService, public usuarioService: UsuarioService, public pertenecesService: PertenecesService) {
     console.log(this.usuarioService.usuario);
     
   }

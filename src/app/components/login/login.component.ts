@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   * @param {AuthService} authService El servicio para verificar al usuario
   * @param {UsuarioService} usuarioService El servicio para manejar al usuario
  */
-  constructor(protected authService: AuthService, private usuarioService: UsuarioService) { }
+  constructor(public authService: AuthService, public usuarioService: UsuarioService) { }
 
   /**
    * @ignore

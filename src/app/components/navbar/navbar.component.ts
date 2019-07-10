@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
   /**
    * @ignore
  */
-  private isOpen = false;
+public isOpen = false;
   /**
    * El Grupo que se va a crear o unir
  */
@@ -75,7 +75,7 @@ export class NavbarComponent implements OnInit {
   * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
   * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
  */
-  constructor(protected authService: AuthService, private grupoService: GrupoService, private direccionService: DireccionService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private invitacionService: InvitacionService) {
+  constructor(public authService: AuthService, public grupoService: GrupoService, public direccionService: DireccionService, public usuarioService: UsuarioService, public pertenecesService: PertenecesService, public invitacionService: InvitacionService) {
     console.log(this.authService.token + "hello");
     this.grupo = new Grupo();
     this.direccion = new Direccion();

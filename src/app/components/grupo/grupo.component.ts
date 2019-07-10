@@ -60,7 +60,7 @@ export class GrupoComponent implements OnInit {
   * @param {PertenecesService} pertenecesService El servicio para unir grupos con usuarios
   * @param {InvitacionService} invitacionService El servicio para obtener las invitaciones
  */
-  constructor(private grupoService: GrupoService, private usuarioService: UsuarioService, private pertenecesService: PertenecesService, private carroService: CarroService, private direccionService: DireccionService, private invitacionService: InvitacionService) { }
+  constructor(public grupoService: GrupoService, public usuarioService: UsuarioService, public pertenecesService: PertenecesService, public carroService: CarroService, public direccionService: DireccionService, public invitacionService: InvitacionService) { }
 
   /**
    * Trae todos los detalles del grupo
