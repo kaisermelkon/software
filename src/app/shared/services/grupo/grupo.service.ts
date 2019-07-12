@@ -15,7 +15,7 @@ export class GrupoService {
   /**
    * La direccion a donde hacer los pedidos al backend
  */
-  URL_API = 'http://localhost:3000/api/grupos';
+  URL_API = 'api/grupos';
   /**
    * El grupo a obtener
  */

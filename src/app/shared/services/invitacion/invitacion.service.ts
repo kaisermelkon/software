@@ -23,7 +23,7 @@ export class InvitacionService {
   /**
    * La direccion a donde hacer los pedidos al backend
  */
-  URL_API = 'http://localhost:3000/api/invitaciones';
+  URL_API = 'api/invitaciones';
 
 
    /**
